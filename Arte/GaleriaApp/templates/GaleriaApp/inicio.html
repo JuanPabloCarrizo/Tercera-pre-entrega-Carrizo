@@ -1,0 +1,43 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block todo %}
+
+<div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card-body"><p class="text-white m-0">Galeria de Arte - Online</p></div>
+</div>
+<!-- Page Content-->
+<div class="container px-4 px-lg-5" id="scroll">
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body" style="background-color:darkkhaki;">
+                    <h2 class="card-title">Artistas</h2>
+                    <p class="card-text">Muchos pintores.</p>
+                </div>
+                <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Artistas' %}">¡Ver todos!</a></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body" style="background-color:aquamarine;">
+                    <h2 class="card-title">Obras</h2>
+                    <p class="card-text">Muchas pinturas?</p>
+                </div>
+                <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Obras' %}">¡Ver todas!</a></div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body" style="background-color:coral;">
+                    <h2 class="card-title">Galerias de arte</h2>
+                    <p class="card-text">Descrubrí galerias por todo el mundo.</p>
+                </div>
+                <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Galerias' %}">¡Ver todas!</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock todo %}

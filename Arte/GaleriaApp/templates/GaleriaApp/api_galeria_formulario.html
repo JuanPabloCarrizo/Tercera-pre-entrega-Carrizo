@@ -1,0 +1,46 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block title %} Agregar Galería {% endblock title %}
+
+{% block todo %}
+<style>
+    .container-2 {
+        text-align: center; /* Centrar el contenido horizontalmente */
+    }
+
+    table {
+        margin: 0 auto; /* Centrar la tabla horizontalmente */
+    }
+
+    .center-button {
+        text-align: center;
+    }
+</style>
+
+<div class="container-2">
+    <table>
+        {% if miFormulario.errors %}
+
+        <p style="color: red;"> Están mal los datos, revisar.</p>
+        
+        {% endif %}
+        
+        <form action="" method="POST">{% csrf_token %}
+        
+            <table>
+        
+                {{ miFormulario.as_table }}
+                
+            </table>
+            <p></p>
+            <input type="submit", style="background-color: green;" value="Agregar galería">
+            <p></p>
+        </form>
+    </table>
+</div>
+
+
+
+
+{% endblock todo %}

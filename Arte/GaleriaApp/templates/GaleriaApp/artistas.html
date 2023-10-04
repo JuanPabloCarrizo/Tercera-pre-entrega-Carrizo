@@ -1,0 +1,39 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block title %} Artistas {% endblock title %}
+
+
+{% block todo %}
+<div class="container px-4 px-lg-5">
+
+    <!-- Heading Row-->
+    <div class="col-lg-6 order-lg-1">
+        <div class="p-5">
+            <h2 class="display-4">Artistas</h2>
+            <p></p>
+            {% for artista in artistas %}
+            <div>
+
+
+                <h1 style="color:blue">{{artista.nombre}}</h1>
+                <p>Nacionalidad: {{artista.nacionalidad}}</p>    
+                <p>Nacimiento: {{artista.fechaNac}}</p>
+                <p>Fallecimiento: {{artista.fechaFallecimiento}}</p>
+                <p>Movimiento: {{artista.movimiento}}</p>
+                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'GaleriaApp/assets/img/A' %}{{ forloop.counter }}.jpg" alt="..." /></div>
+            
+
+            </div>
+            
+            {% endfor %}
+
+        </div>
+    </div>
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body"><p class="text-white m-0">Increíble pero funciona.</p></div>
+        <a class="btn btn-primary" href="{% url 'Inicio' %}">Volver al inicio</a>
+    </div>                 
+</div>
+{% endblock todo %}

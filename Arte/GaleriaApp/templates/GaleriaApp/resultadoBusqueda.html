@@ -1,0 +1,90 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block title %} Buscar {% endblock title %}
+
+{% block todo %}
+
+<div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5">
+        <div class="card h-100">
+            <div class="card-body" style="background-color:darkkhaki;">
+                <h2 class="card-title">Artistas</h2>
+                <p class="card-text">Resultado de la búsqueda:</p>
+                {% if artistas %}
+
+                    <ul>
+                    
+                        {% for artista in artistas %}
+                            <li style="color: blue;">Nombre: {{artista.nombre}}</li>
+                            <li>Nacionalidad: {{artista.nacionalidad}}</li>
+                            <li>Nacimiento: {{artista.fechaNac}}</li>
+                            <li>Fallecimiento: {{artista.fechaFallecimiento}}</li>
+                            <li>Movimiento: {{artista.movimiento}}</li>
+                            <li>-----------------------</li>
+                        {% endfor %}
+                    </ul>
+                
+                {% else %}
+                    <p>No hay datos con ese nombre.</p>
+                {% endif %}
+                <p></p>
+                <p style="color: red;">{{respuesta}}</p>
+                <p></p>
+
+            <!--  -->
+            {% if obras %}
+
+                    <ul>
+                    
+                        {% for obra in obras %}
+                            <li>{{obra.nombre}}</li>
+                            <li>{{obra.nacionalidad}}</li>
+                            <li>{{obra.fechaNac}}</li>
+                            <li>{{obra.fechaFallecimiento}}</li>
+                            <li>{{obra.movimiento}}</li>
+                        {% endfor %}
+                    </ul>
+                
+                {% else %}
+                    <p></p>
+                {% endif %}
+                <p></p>
+                <p style="color: red;">{{respuesta}}</p>
+                <p></p>
+            
+                {% if galerias %}
+
+                    <ul>
+                    
+                        {% for galeria in galerias %}
+                            <li>{{galeria.nombre}}</li>
+                            <li>{{galeria.nacionalidad}}</li>
+                            <li>{{galeria.fechaNac}}</li>
+                            <li>{{galeria.fechaFallecimiento}}</li>
+                            <li>{{galeria.movimiento}}</li>
+                        {% endfor %}
+                    </ul>
+                
+                {% else %}
+                    <p></p>
+                {% endif %}
+                <p></p>
+                <p style="color: red;">{{respuesta}}</p>
+                <p></p>
+  
+                    <!-- Call to Action-->
+                    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                    
+                        <a class="btn btn-primary" href="{% url 'Api-Busqueda-Formulario' %}">Volver a buscar</a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock todo %}

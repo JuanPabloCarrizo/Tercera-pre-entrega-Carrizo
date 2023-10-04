@@ -1,0 +1,107 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block title %} Buscar {% endblock title %}
+
+{% block todo %}
+<style>
+    .container-2 {
+        text-align: center; /* Centrar el contenido horizontalmente */
+    }
+
+    table {
+        margin: 0 auto; /* Centrar la tabla horizontalmente */
+    }
+
+    .center-button {
+        text-align: center;
+    }
+</style>
+
+
+<!-- Page Content-->
+<div class="container px-4 px-lg-5">
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body" style="background-color:darkkhaki;">
+                    <h2 class="card-title">Artistas</h2>
+                    <p class="card-text">Muchos pintores.</p>
+
+                    {% if miFormulario.errors %}
+
+                    <p style="color: red"> Están mal los datos, revisar.</p>
+                    {% endif %}
+                
+                    <form action="" method="POST">{% csrf_token %}
+
+                        <!-- <input type="text" name="nombre" id="nombre"> -->
+                        <table>
+
+                            {{ miFormulario.as_table }}
+
+                        </table>
+                    
+                        <input type="submit", style="background-color: green;" value="Buscar">
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body" style="background-color:aquamarine;">
+                    <h2 class="card-title">Obras</h2>
+                    <p class="card-text">Solo tiene funcionalidad el de artista,este no funca :D</p>
+                
+                    {% if miFormulario.errors %}
+
+                    <p style="color: red"> Están mal los datos, revisar.</p>
+                    {% endif %}
+                
+                    <form action="" method="POST">{% csrf_token %}
+
+                        <!-- <input type="text" name="nombre" id="nombre"> -->
+                        <table>
+
+                            {{ miFormulario.as_table }}
+
+                        </table>
+                    
+                        <input type="button", style="background-color: green;" value="Buscar">
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body" style="background-color:coral;">
+                    <h2 class="card-title">Galerias de arte</h2>
+                    <p class="card-text">Solo tiene funcionalidad el de artista,este no funca :D</p>
+                
+                    {% if miFormulario.errors %}
+
+                    <p style="color: red"> Están mal los datos, revisar.</p>
+                    {% endif %}
+                
+                    <form action="" method="POST">{% csrf_token %}
+
+                        <!-- <input type="text" name="nombre" id="nombre"> -->
+                        <table>
+
+                            {{ miFormulario.as_table }}
+
+                        </table>
+                    
+                        <input type="button", style="background-color: green;" value="Buscar">
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock todo %}
