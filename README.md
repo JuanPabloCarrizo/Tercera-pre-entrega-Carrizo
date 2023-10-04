@@ -10,7 +10,7 @@ Tercera pre entrega, juan pablo carrizo. Web sobre una galería de arte online.
 6 - Cada uno de ellos, tiene una imagen. No se como guardarlas en la base, entonces lo que hice fué algo que simule:
     Puse imagenes en static/assets/img con la nomenclatura A, O y G (artista, obra y galeria) y un número secuencial.
     Dentro del for del html de cada uno de ellos le agregué:
-    "src="{% static 'GaleriaApp/assets/img/A' %}{{ forloop.counter }}.jpg" 
+    "src= {% static 'GaleriaApp/assets/img/A' %} {{ forloop.counter }} . jpg" 
     (lo saqué de google)
     Para simular que ya estaban guardadas. Hay un máximo disponible de fotos y luego ya no mostrará imágenes.
 7 - Para agregar, en la navbar podemos hacerlo.
