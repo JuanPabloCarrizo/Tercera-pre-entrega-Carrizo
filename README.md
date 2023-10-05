@@ -2,7 +2,8 @@
 Tercera pre entrega, juan pablo carrizo. Web sobre una galería de arte online.
 
 # La web "Galería de arte online", permite buscar, mostrar y agregar artistas, obras y museos.
-1 - http://127.0.0.1:8000/GaleriaApp
+1 - Cambié el path en urls.py del proyecto para que cuando cargue la pantalla vaya directo a inicio en lugar de poner:
+    http://127.0.0.1:8000/ "GaleriaApp". 
 2 - Tomé de base, este template: https://startbootstrap.com/template/small-business
 3 - En la página principal, vemos el contenido de inicio.html que hereda de padre.html como archivo base.
 4 - En inicio.html podemos buscar artistas, obras y galerias que están guardadas en la base de datos.
