@@ -10824,3 +10824,53 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+/* Agrego estilo al login */
+.login-form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Agrego estilo a container-2 para central un botón */
+.container-2 {
+          text-align: center; /* Centrar el contenido horizontalmente */
+    }
+
+table {
+        margin: 0 auto; /* Centrar la tabla horizontalmente */
+    }
+.center-button {
+        text-align: center;
+    }
+    
+.form-group {
+        margin-bottom: 15px;
+    }

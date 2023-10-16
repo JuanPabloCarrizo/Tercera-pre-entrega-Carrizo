@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'GaleriaApp',
+    'Usuarios',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +83,10 @@ DATABASES = {
     }
 }
 
+# Esto lo agrego para que funcione el redirect del login, utilizando loginView.
+LOGIN_REDIRECT_URL = "Inicio"
+LOGIN_URL = "Login"
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -122,3 +128,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ... Otras configuraciones ...
+
+# Configuración de archivos multimedia
+MEDIA_URL = '/media/'  # URL base para archivos multimedia
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  # Directorio raíz para archivos multimedia
+
+# ... Otras configuraciones ...
+

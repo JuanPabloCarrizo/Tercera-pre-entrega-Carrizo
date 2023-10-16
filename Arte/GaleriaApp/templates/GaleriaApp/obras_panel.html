@@ -3,11 +3,16 @@
 
 {% block todo %}
 
-
 <div class="card text-white bg-secondary my-5 py-4 text-center">
-    <div class="card-body"><p class="text-white m-0">{% block title %} Obras {% endblock title %}</p></div>
-</div>   
+  <div class="card-body"><p class="text-white m-0">{% block title %} Obras {% endblock title %}</p></div>
+    <div class="container-2">
+      <p></p>
+      <a href="{% url 'Obra-Nuevo' %}" class="btn btn-success">Agregar obra</a>
+      <p></p>
+  </div>
+</div > 
 
+<!-- Esto es el formulario de alta -->
     <div class="container text-center">
         <div class="row align-items-start">
             {% for obra in object_list %}
@@ -17,10 +22,9 @@
                 <img src="{% static 'GaleriaApp/assets/img/O' %}{{ forloop.counter }}.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{ obra.nombre  }} </h5>
-                  <p class="card-text">{{ obra.nombre  }} la pinto {{obra.autor}}, se encuentra en 
-                  <a href="{% url 'Galerias' %}">{{obra.ubicacion}}.</a>
-                </p>
-                  <a href="#" class="btn btn-primary">Ver Bio</a>
+                  <a href="#" class="btn btn-success">Ver</a>
+                  <a href="#" class="btn btn-info">Editar</a>
+                  <a href="#" class="btn btn-danger">Eliminar</a>
                 </div>
             </div>
           </div>

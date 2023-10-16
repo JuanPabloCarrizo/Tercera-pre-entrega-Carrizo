@@ -1,0 +1,62 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block title %} Editar Artista {% endblock title %}
+
+{% block todo %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        /* Agregar márgenes y estilos al formulario */
+        .card {
+            width: 18rem;
+            margin: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="card">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <img src="{% static 'GaleriaApp/assets/img/A' %}{{ forloop.counter }}.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ form.nombre }}</h5>
+                            <p class="card-text">{{ form.nacionalidad }}</p>
+                            <p class="card-text">{{ form.fechaNac }}</p>
+                            <p class="card-text">{{ form.fechaFallecimiento }}</p>
+                            <p class="card-text">{{ form.movimiento }}</p>
+
+                            <button type="submit" class="btn btn-primary">Guardar</button><a href="{% url 'Artistas-Panel' %}" class="btn btn-success">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+{% endblock todo %}

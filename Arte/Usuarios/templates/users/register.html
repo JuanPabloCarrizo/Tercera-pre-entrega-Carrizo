@@ -1,0 +1,88 @@
+    
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block todo %}
+
+<br>
+<br>
+
+<div class="container text-center">
+    <h1>Registro de usuario</h1>
+</div>
+
+<div class="container">
+    <div class="form-group">
+    <form style=" width: 50vw; margin-left : 15vw;" method="post">
+        {% csrf_token %}
+                <tr>
+                    <td>Usuario</td>
+                    <td><input id="id_username" name="username" 
+                            type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input id="id_email" name="email" 
+                            type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td><input id="id_first_name" name="first_name" 
+                            type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Apellido</td>
+                    <td><input id="id_last_name" name="last_name" 
+                            type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Contraseña</td>
+                    <td><input id="id_password1" name="password1" 
+                            type="password" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Repetir contraseña</td>
+                    <td><input id="id_password2" name="password2" 
+                            type="password" class="form-control"></td>
+                </tr>
+        <div class="container text-center">
+        <br>
+        <tr>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </tr>
+        
+        </div>
+    </form>
+    </div>
+    <br>
+    <div class="container text-center">
+            {% if form.errors %}
+            <div class="error-message">
+                <p>Hubo errores en el formulario:</p>
+                
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                    {% for field in form.visible_fields %}
+                        {% for error in field.errors %}
+                            <li>{{ field.label }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+              
+            </div>
+            {% endif %}
+    </div>
+    <br>
+    <div class="container text-center">
+    <p>¿Ya tenés una cuenta? <a href="{% url 'Login' %}">Iniciar Sesión</a></p>
+    </div>
+</div>
+
+<br>
+<br>
+
+{% endblock todo %}
+
+               
+
+                

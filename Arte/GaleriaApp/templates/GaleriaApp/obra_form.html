@@ -1,0 +1,19 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block title %} Agregar Artista {% endblock title %}
+
+{% block todo %}
+
+
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            {{ form.as_p}}
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+
+
+{% endblock todo %}
