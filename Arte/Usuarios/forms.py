@@ -9,8 +9,8 @@ class UserRegisterForm(UserCreationForm):
     
     username = forms.CharField()
     email = forms.EmailField(label='ingrese su email')
-    first_name = forms.CharField()
-    last_name = forms.CharField()
+    first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
     password1 = forms.CharField(label='Ingrese una contraseña',widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir contraseña',widget=forms.PasswordInput)
     
@@ -21,9 +21,10 @@ class UserRegisterForm(UserCreationForm):
 
 class UserEditForm(forms.ModelForm):
 
-    email = forms.EmailField(label="Ingrese su email:")    
-    first_name = forms.CharField(label='ingrese su nombre')
-    last_name = forms.CharField(label='ingrese su apellido')
+    email = forms.EmailField(label="Ingrese su email:",required=False)    
+    first_name = forms.CharField(label='ingrese su nombre', required=False)
+    last_name = forms.CharField(label='ingrese su apellido', required=False)
+    imagen = forms.ImageField(required=False)
     
     class Meta:
         model = User

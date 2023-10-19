@@ -16,6 +16,8 @@
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark margin-bottom 0px">
+            <!-- PROBAR ESTO
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark py-2 fixed-top"> -->
             <div class="container px-5">
                 {% if user.is_authenticated %}
                 <a class="navbar-brand" href="#page-top">¡Hola {{ user.first_name }}!</a>
@@ -28,21 +30,22 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'Obras' %}">Obras</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Galerias' %}">Galerías</a></li>
                         {% if user.is_authenticated %}
-                        <div class="dropdown">
+                            {% if user.is_superuser or user.is_staff %} 
+                                <div class="dropdown">
+                                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Panel de control
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'Artistas-Panel' %}">Artistas</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'Obras-Panel' %}">Obras</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'Galerias-Panel' %}">Galerias</a></li>
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        <td> - </td>        
+                        <div class="dropdown">                            
                             <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Panel de control
-                            </button>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="{% url 'Artistas-Panel' %}">Artistas</a></li>
-                              <li><a class="dropdown-item" href="{% url 'Obras-Panel' %}">Obras</a></li>
-                              <li><a class="dropdown-item" href="{% url 'Galerias-Panel' %}">Galerias</a></li>
-                              <li><a class="dropdown-item" href="{% url 'Artistas' %}">Nuevo usuario</a></li>
-                            </ul>
-                          </div>
-                       
-                        <div class="dropdown">
-                            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Cuenta
+                                {% if user_avatar %}<img height="40px" src="{{user_avatar}}"/> {% endif %}    Cuenta
                             </button>
                             <ul class="dropdown-menu">
                               <li><a class="dropdown-item" href="{% url 'Edit' %}">Editar</a></li>
@@ -65,7 +68,11 @@
 
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+            <div class="container px-4 px-lg-5">
+                <p class="m-0 text-center text-white">Copyright &copy; Juan Pablo Carrizo 2023 </p>
+                <p class="m-0 text-center text-white"><a class="nav-link" href="{% url 'About' %}">Acerca de mí</a></p>
+            </div>
+            
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

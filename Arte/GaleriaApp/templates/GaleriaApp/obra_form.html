@@ -1,13 +1,13 @@
 {% extends "GaleriaApp/padre.html" %}
 {% load static %}
 
-{% block title %} Agregar Artista {% endblock title %}
+{% block title %} Agregar Obra {% endblock title %}
 
 {% block todo %}
 
 
 
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             
             {{ form.as_p}}

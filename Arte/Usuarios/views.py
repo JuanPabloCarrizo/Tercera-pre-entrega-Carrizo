@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.views import LoginView, LogoutView , PasswordChangeView
-from django.views.generic.edit import CreateView, UpdateView
-from .models import UserProfile
 from Usuarios.forms import UserRegisterForm , UserPasswordForm #Esto es para registro
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
 from Usuarios.forms import UserEditForm
-from django.urls import reverse_lazy
+from Usuarios.models import Avatar
+from django.core.files.storage import default_storage
+
 
 
 
@@ -18,9 +16,15 @@ plantillas = {
     'register' : 'users/register.html',
     'edit' : 'users/edit.html',
     'password': 'users/change_password.html',
+    'page_not_found': 'users/page_not_found.html',
 }
 
-# Vistas de login, logout y registro.
+def page_not_found(request, exception):
+
+    return render(request, plantillas['page_not_found'], status=404)
+
+
+# registro.
 # log in y out, lo manejo desde urls.py
 def register(request):
     if request.method == 'POST':
@@ -41,7 +45,7 @@ def edit(request):
     
     if request.method == 'POST':
        
-        miFormulario = UserEditForm(request.POST)
+        miFormulario = UserEditForm(request.POST, request.FILES)
         
         if miFormulario.is_valid():
            
@@ -52,6 +56,26 @@ def edit(request):
             usuario.last_name = informacion['last_name']
                 
             usuario.save()
+
+            #esto graba en la tabla Avatar
+            imagen = informacion['imagen']
+            try:
+                avatar = Avatar.objects.get(user=usuario)
+            except Avatar.DoesNotExist:
+                # Si no existe un avatar, crea uno nuevo
+                avatar = Avatar(user=usuario, imagen=imagen)
+            else:
+                # Si el avatar ya existe, actualiza la imagen
+                avatar.imagen = imagen
+                
+            # Antes de guardar el nuevo avatar
+            if usuario.avatar:
+                print("ENTRA EN USUARIO AVATAR")
+                # Elimina el archivo del avatar anterior
+                default_storage.delete(avatar.imagen.path)    
+                print(f'tiene: {avatar.imagen.path}')
+
+            avatar.save()
                 
                 
             return redirect('Inicio')  

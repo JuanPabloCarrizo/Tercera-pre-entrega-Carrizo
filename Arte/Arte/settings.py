@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'GaleriaApp.context_processors.custom_user_avatar',
             ],
         },
     },
@@ -134,7 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configuración de archivos multimedia
 MEDIA_URL = '/media/'  # URL base para archivos multimedia
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')  # Directorio raíz para archivos multimedia
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directorio raíz para archivos multimedia
 
 # ... Otras configuraciones ...
 

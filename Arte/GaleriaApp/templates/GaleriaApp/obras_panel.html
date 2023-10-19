@@ -2,36 +2,35 @@
 {% load static %}
 
 {% block todo %}
-
-<div class="card text-white bg-secondary my-5 py-4 text-center">
-  <div class="card-body"><p class="text-white m-0">{% block title %} Obras {% endblock title %}</p></div>
-    <div class="container-2">
-      <p></p>
-      <a href="{% url 'Obra-Nuevo' %}" class="btn btn-success">Agregar obra</a>
-      <p></p>
-  </div>
-</div > 
-
+<br><div class="container text-center">
+  <h1>{% block title %} Obras {% endblock title %}</h1>
+</div>
+<div class="container text-center">
+  <a href="{% url 'Obra-Nuevo' %}" class="btn btn-success">Agregar obra</a>
+</div>
+<br>
+<br>
 <!-- Esto es el formulario de alta -->
-    <div class="container text-center">
-        <div class="row align-items-start">
-            {% for obra in object_list %}
-          <div class="col">
+<div class="container text-center">
+  <div class="row align-items-start">
+      {% for obra in object_list %}
+    <div class="col">
 
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'GaleriaApp/assets/img/O' %}{{ forloop.counter }}.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{ obra.nombre  }} </h5>
-                  <a href="#" class="btn btn-success">Ver</a>
-                  <a href="#" class="btn btn-info">Editar</a>
-                  <a href="#" class="btn btn-danger">Eliminar</a>
-                </div>
-            </div>
+      <div class="card" style="width: 18rem;">
+        <img src="{{ obra.foto.url }}" class="card-img-top" alt="..." style="max-width: 100; max-height: 300px;">
+          <div class="card-body">
+            <h5 class="card-title">{{ artista.nombre  }} </h5>
+            <a href="{% url 'Obra-Detalle' obra.id %}" class="btn btn-success">Ver</a>
+            <a href="{% url 'Obra-Editar' obra.id %}" class="btn btn-info">Editar</a>
+            <a href="{% url 'Obra-Eliminar' obra.id %}" class="btn btn-danger">Eliminar</a>
           </div>
-          {% endfor %}
-        </div>
+      </div>
     </div>
-    
+    {% endfor %}
+    <br>
+  </div>
+</div>
+<br>
 
 
     

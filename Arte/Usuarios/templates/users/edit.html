@@ -24,53 +24,12 @@
     
         <div class="container">
             <div class="text-center">
-                <form id="login-form" style=" width: 50vw; margin-left : 15vw;" method="post">
+                <form id="login-form" style=" width: 50vw; margin-left : 15vw;"  enctype="multipart/form-data" method="post">
                     {% csrf_token %}
 
-                    {{ mi_form.as_p }}
-                    <!-- <table class="table">
-                        <tr>
-                            <td><label for="id_username">Usuario</label></td>
-                            <td><input id="id_username" name="username" 
-                                       type="text" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="id_email">Email</label></td>
-                            <td><input id="id_email" name="email" 
-                                       type="email" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="id_first_name">Nombre</label></td>
-                            <td><input id="id_first_name" name="first_name" 
-                                       type="text" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="id_last_name">Apellido</label></td>
-                            <td><input id="id_last_name" name="last_name" 
-                                       type="text" class="form-control"></td>
-                        </tr> -->
-                        <!-- <tr>
-                            <td><label for="id_password">Contraseña</label></td>
-                            <td><input id="id_password" name="password" 
-                                       type="password" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td><label for="id_password2">Repetir contraseña</label></td>
-                            <td><input id="id_password2" name="password2" 
-                                       type="password" class="form-control"></td>
-                        </tr> -->
-                        
-                    </table>
-                    {% if form.errors %}
-                        <p class="label label-danger">
-                            Tu usuario y contraseña no coinciden 
-                            Intenta nuevamente.
-                        </p>
-                    {% endif %}
-    
-                    <!-- <input type="submit" value="Login" 
-                           class="btn btn-primary pull-right" />
-                    <input type="hidden" name="next" value="{{ next }}" /> -->
+                    {{ mi_form.as_p }}                                         
+
+
                     <input type="submit" value="Actualizar" 
                          class="btn btn-primary pull-right" />
                 </form>

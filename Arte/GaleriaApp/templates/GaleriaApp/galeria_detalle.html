@@ -1,0 +1,84 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block todo %}
+
+<!-- Page content-->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1">{{ galeria.nombre }}</h1>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">{{galeria.cita}}</div>
+                    <!-- Post categories-->
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{galeria.ubicacion}}</a>
+                </header>
+                <!-- Preview image figure-->
+                <div class="card" style="width: 18rem;">
+                <figure class="mb-4"><img class="img-fluid rounded" src="{{ galeria.foto.url }}" alt="..." /></figure>
+                </div>
+                <!-- Post content-->
+                <section class="mb-5">
+                    <h2 class="fw-bolder mb-4 mt-5">Descripción</h2>
+                </section>
+                <section class="mb-5">
+                    <h6 class="">{{ galeria.biografia }}</h6>
+                </section>
+            </article>
+            <!-- Comments section-->
+            <section class="mb-5" id="seccion-comentarios">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <!-- Commentarios form-->
+                        <h2>Comentarios</h2>
+                        <ul>
+                            {% for comentario in comentarios %}
+                                <li>
+                                    {% if comentario.usuario.avatar.imagen %}<img height="40px" src="{{comentario.usuario.avatar.imagen.url}}"/> {% endif %}<strong>{{ comentario.usuario.first_name }}</strong> - {{ comentario.fecha }}
+                                    <p>{{ comentario.texto }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                         <!--Agrego validación para que no puedan comentar si no están logueados. -->
+                        {% if user.is_authenticated %}
+                        <h2>Agregar Comentario</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ comentario_form.as_p }}
+                            <button type="submit">Comentar</button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>                
+            </section>
+            <h3>Obras en el recinto:</h3>
+            <ul>
+            {% for obra in obras_en_galeria %}
+                <li>{{ obra.nombre }}</li>
+                <a href="{% url 'Obra-Detalle' obra.id %}">
+                    <img class="img-fluid rounded mb-4 mb-lg-0" style="max-width: 200; max-height: 200px;" src="{{ obra.foto.url }}" alt="..." />
+                </a>
+                <!-- Mostrar otros detalles de la obra -->
+            {% endfor %}
+            </ul>
+            <button onclick="goBack()" class="btn btn-success">Volver</button>             
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function goBack() {
+      window.history.back();
+    }
+</script>    
+    
+
+
+    
+{% endblock todo%}

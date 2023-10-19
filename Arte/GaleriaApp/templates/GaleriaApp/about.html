@@ -1,0 +1,144 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block todo %}
+
+<div class="container px-4 px-lg-5">
+
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+       
+        <div class="card h-100">
+            <div class="col-lg-7">
+                <img class="img-fluid rounded mb-4 mb-lg-0" style="max-width: 200; max-height: 200px;" src="{% static 'GaleriaApp/assets/img/perfil_jp.jpeg' %}" alt="..." />
+            </div>
+     
+                <div class="col-lg-10">
+                    <h1 class="font-weight-light">Juan Pablo Carrizo</h1>
+                    <p>Desarrollador backend - Guitarrista y compositor en <a href="https://www.instagram.com/automaticooficial/">Aütomático</a>.</p>
+                    <a class="btn btn-primary" href="https://github.com/JuanPabloCarrizo" target="_blank">Github</a>  <a class="btn btn-primary" style="background-color: green;" href="https://open.spotify.com/intl-es/artist/0F3ZJuR6nx8KCK6Kx3hYMs?si=6iiYkoZxSn6jTZSAly6uCA" target="_blank">Spotify</a>
+                    <br>
+                    <ul>
+                        <li><a href="#experience">Experiencia general</a></li>
+                        <li><a href="#skills">Habilidades Informáticas</a></li>
+                        <li><a href="#languages">Idiomas</a></li>
+                        <li><a href="#education">Educación</a></li>
+                        <li><a href="#work-experience">Experiencia Laboral</a></li>
+
+                    </ul>
+                    <br>
+                </div>
+                <br>
+                <div class="col-lg-20">
+                    <div class="col-lg-30">
+                        <div id="experience" class="section">
+                            <h3>Mi Experiencia</h3>
+                            <p>En mi viaje profesional, he explorado una variedad de lenguajes de programación, incluyendo:</p>
+                            <ul>
+                                <li>COBOL</li>
+                                <li>JAVA</li>
+                                <li>.NET</li>
+                                <li>! AHORA PYTHON Y DJANGO !</li>
+                                <li>.. y si, no me gusta el FRONTEND.</li>
+                                <li>Además de músico aficionado, me gustan los desafíos... Excepto el front end.</li>
+                            </ul>
+                        </div>
+                                        
+                        <div id="skills" class="section">
+                            <h3>Habilidades Informáticas</h3>
+                            <ul>
+                                <li>Microsoft Office</li>
+                                <li>Microsoft Visual Studio</li>
+                                <li>Base de datos Oracle</li>
+                                <li>Wordpress</li>
+                            </ul>
+                        </div>
+                    
+                        <div id="languages" class="section">
+                            <h3>Idiomas</h3>
+                            <p>Inglés: C2 Proficiente. EF SET Certificate 79/100</p>
+                            <p>Italiano: Nivel inicial.</p>
+                        </div>
+                    
+                        <div id="education" class="section">
+                            <h3>Educación</h3>
+                            <p>2022<br>
+                            Curso "Negociación y Resolución de Conflictos como Habilidad Directiva" del Plan Federal de Formación y Capacitación en Gestión Pública. CoFeFuP e INAP, a través de la Universidad Nacional de Lomas de Zamora.</p>
+                    
+                            <p>2019<br>
+                            IRAM. Curso MG-15 Planificación y control de gestión: Cuadro de mando integral y mapas estratégicos.</p>
+                            
+                            <p>2019<br>
+                            IRAM. Curso GC-08 Formación de auditores internos en sistemas de gestión de la calidad según la norma IRAM-ISO 19011.</p>
+                            
+                            <p>2002 - 2005<br>
+                            Tecnicatura en Diseño Industrial. Instituto Tecnológico Superior (I.T.E.S). Cursado hasta segundo año.</p>
+                            
+                            <p>2001 - 2003<br>
+                            Licenciatura en Ciencias de la Computación. Universidad Nacional de San Luis. Cursado hasta segundo año.</p>
+                        </div>
+                    
+                        
+                        <div id="work-experience" class="section">
+                            
+                            <h3>Experiencia Laboral</h3>
+                            <p>2007 - 2015<br>
+                            Desarrollador de software Semi Senior en INDRA. La Punta, San Luis, Arg.</p>            
+                            <ul>
+                                <li>Resolución de incidencias.</li>
+                                <li>Desarrollo de nuevas aplicaciones.</li>
+                                <li>Planificación y distribución de asignaciones.</li>
+                                <li>Control de calidad y puesta en producción.</li>
+                                <li>Análisis técnico y funcional de los requerimientos.</li>
+                                <li>Soporte técnico a miembros del equipo para clientes como Banco Pastor, Telefónica España, Endesa España, Endesa Latam, Banco Santander Río y Ceicom.</li>
+                            </ul>
+                    
+                            <p>2017 - 2019<br>
+                            Desarrollador de soluciones basadas en .NET en el Ministerio de Producción, Gobierno de la Provincia de San Luis.</p>
+                        
+                            <ul>
+                                <li>Análisis y desarrollo de sistemas web basados en .NET para optimización de procesos de programas ministeriales.</li>
+                                <li>Comunicación con el cliente; análisis funcional y técnico; y desarrollo y testeo de aplicaciones web tanto internas como abiertas al público en general.</li>
+                                <li>Trabajos destacados: Sistema Portal Mosca de los Frutos, Sistema de cartilla de energías renovables, Sistema de inscripción y cálculo de residuos peligrosos, Sistema de fomento frutihortícola, Sistema de egresos e ingresos (covid-19), Sistema de registro de oficios (covid-19), Sistema de pases de circulación (covid-19).</li>
+                            </ul>
+                    
+                            <p>2019 - 2023<br>
+                            Responsable del sistema de gestión del Programa de Control y Erradicación de la Mosca de los Frutos en el Ministerio de Producción, Gobierno de la Provincia de San Luis.</p>
+                        
+                            <ul>
+                                <li>Creación, análisis y seguimiento de los objetivos de calidad y de sus procesos, así como también el acompañamiento a los responsables y directivos involucrados.</li>
+                                <li>Creación de procedimientos de trabajo y perfiles de puestos, análisis de contexto, riesgos y oportunidades, partes interesadas y propuestas de mejoras continuas, tratamiento de no conformidades, seguimiento y control de objetivos de calidad, tratamientos de desvíos, control sobre la información documentada, seguimiento de quejas y reclamos y encuestas de satisfacción.</li>
+                            </ul>
+
+                            <h3>Experiencia como Auditor Interno</h3>
+                            <p>Adicionalmente, he tenido el honor de servir como Auditor Interno de Sistemas de Gestión de Calidad en instituciones destacadas, tales como:</p>
+                            <ul>
+                                <li>Ministerio de Producción, Provincia de San Luis</li>
+                                <li>Ministerio de Hacienda, Provincia de San Luis</li>
+                                <li>Ministerio de Justicia y Culto, Provincia de San Luis</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <a href="#top" class="back-to-top">Ir Arriba</a>
+                <button onclick="goBack()" class="btn btn-success">Volver</button>              
+
+        </div>
+
+        <br>
+        <br>
+    
+    </div>       
+</div>
+
+<script>
+    function goBack() {
+      window.history.back();
+    }
+</script>
+
+
+
+{% endblock todo %}

@@ -1,7 +1,7 @@
 {% extends "GaleriaApp/padre.html" %}
 {% load static %}
 
-{% block title %} Editar Artista {% endblock title %}
+{% block title %} Editar Galería {% endblock title %}
 
 {% block todo %}
 
@@ -38,17 +38,17 @@
         <div class="row align-items-start">
             <div class="col">
                 <div class="card">
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <img src="{% static 'GaleriaApp/assets/img/A' %}{{ forloop.counter }}.jpg" class="card-img-top" alt="...">
+                        <img src="{{ galeria.foto.url }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ form.nombre }}</h5>
-                            <p class="card-text">{{ form.nacionalidad }}</p>
-                            <p class="card-text">{{ form.fechaNac }}</p>
-                            <p class="card-text">{{ form.fechaFallecimiento }}</p>
-                            <p class="card-text">{{ form.movimiento }}</p>
+                            <p class="card-text">{{ form.cita }}</p>
+                            <p class="card-text">{{ form.ubicacion }}</p>
+                            <p class="card-text">{{ form.biografia }}</p>
+                            {{form.foto}}
 
-                            <button type="submit" class="btn btn-primary">Guardar</button><a href="{% url 'Artistas-Panel' %}" class="btn btn-success">Cancelar</a>
+                            <button type="submit" class="btn btn-primary">Guardar</button><a href="{% url 'Galerias-Panel' %}" class="btn btn-success">Cancelar</a>
                         </div>
                     </form>
                 </div>
