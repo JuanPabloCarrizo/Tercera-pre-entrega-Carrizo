@@ -62,7 +62,7 @@ class Galeria(models.Model):
 class Obra(models.Model):
     nombre=models.CharField(max_length=100)
     cita=models.CharField(max_length=500, null=True, blank=True)
-    anio=models.IntegerField(max_length=4)
+    anio=models.IntegerField()
     material=models.CharField(max_length=200)
     biografia = models.CharField(max_length=1500, null=True, blank=True)
     foto = models.ImageField(upload_to='obras',null=True, blank=True)

@@ -1,12 +1,10 @@
 from django.urls import path
 from GaleriaApp import views
-from django.views.generic import View
-
 
 urlpatterns = [
     
     path('',views.inicio, name="Inicio"),
-    # path('page-not-found/', views.page_not_found, name='page_not_found'),
+    path('page-not-found/', views.page_not_found, name='Page_not_found'),
     path('artistas/', views.Artistas.as_view(),name="Artistas"),
     path('obras/', views.Obras.as_view(),name="Obras"),
     path('galerias/', views.Galerias.as_view(),name="Galerias"),
@@ -30,9 +28,6 @@ urlpatterns = [
     path('galeria-eliminar/<int:pk>',views.GaleriaEliminar.as_view(),name="Galeria-Eliminar"),    
     # About
     path('about/',views.about, name="About"),
-
-    
-
     
 ]
 

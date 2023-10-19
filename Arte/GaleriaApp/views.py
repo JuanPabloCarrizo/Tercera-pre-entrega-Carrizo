@@ -1,10 +1,7 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
-# from django.http import HttpResponse, request
+from django.shortcuts import render
 from GaleriaApp.models import *
 from GaleriaApp.forms import *
-from Usuarios.models import Avatar
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -12,11 +9,7 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-#para comentarios
-# from .models import Artista, Comentario
-# from .forms import ComentarioForm
-
-# Diccionario con direcciones 
+# Diccionario con htmls 
 plantillas = {
     'inicio': 'GaleriaApp/inicio.html',
     'login' : 'GaleriaApp/login.html',
@@ -40,6 +33,7 @@ plantillas = {
     'galeria_editar' : 'GaleriaApp/galeria_editar.html',
     'galeria_confirm': 'GaleriaApp/galeria_confirm_delete.html',
     'about': 'GaleriaApp/about.html',
+    '404' : 'GaleriaApp/404.html'
 }
 
 
@@ -53,13 +47,13 @@ def about(request):
     
     return render(request, plantillas['about'])
 
+def page_not_found(request, exception):
+    return render(request,plantillas['404'], status=404)
+
 class Artistas(ListView):
     model =  Artista
     template_name = plantillas['artistas']
-    
-    # def get(self, request, *args, **kwargs):
-    #     return super().get(request,*args,**kwargs)
-    
+        
 class Obras(ListView):
     model =  Obra
     template_name = plantillas['obras']
@@ -68,63 +62,6 @@ class Galerias(ListView):
     model = Galeria
     template_name = plantillas['galerias']
     
-    # def get_queryset(self):
-    #     # Incluir obras relacionadas en el queryset
-    #     return Galeria.objects.prefetch_related('obra_set')
-     
-# Vistas de Panel de control (cuando el user está logueado)
-class ArtistasPanel(LoginRequiredMixin,ListView):
-    model =  Artista
-    template_name = plantillas['artistas_panel']    
- 
-class ObrasPanel(LoginRequiredMixin,ListView):
-    model =  Obra
-    template_name = plantillas['obras_panel']
-
-class GaleriasPanel(LoginRequiredMixin,ListView):
-    model =  Galeria
-    template_name = plantillas['galerias_panel']
-
-class ArtistaCreate(LoginRequiredMixin,CreateView):
-
-    model = Artista
-    template_name = plantillas['artista_form']
-    success_url = reverse_lazy("Artistas-Panel")
-    form_class = ArtistaFormulario
-
-class ObraCreate(LoginRequiredMixin,CreateView):
-
-
-    model = Obra
-    template_name = plantillas['obra_form']
-    success_url = reverse_lazy("Obras-Panel")
-    fields = ["nombre","cita","anio","material","biografia", "foto","artista","galeria"]
-    
-
-class GaleriaCreate(LoginRequiredMixin,CreateView):
-
-    model = Galeria
-    template_name = plantillas['galeria_form']
-    success_url = reverse_lazy("Galerias-Panel")
-    fields = ["nombre","cita", "ubicacion", "biografia", "foto"]
-    
-class ArtistaEditar(LoginRequiredMixin,UpdateView):
-    model  = Artista
-    template_name = plantillas['artista_editar']
-    success_url = reverse_lazy("Artistas-Panel")
-    form_class = ArtistaFormulario
-
-class ObraEditar(LoginRequiredMixin,UpdateView):
-    model  = Obra
-    template_name = plantillas['obra_editar']
-    success_url = reverse_lazy("Obras-Panel")
-    fields = ["nombre","cita","anio","material","biografia", "foto","artista","galeria"]
-
-class GaleriaEditar(LoginRequiredMixin,UpdateView):
-    model  = Galeria
-    template_name = plantillas['galeria_editar']
-    success_url = reverse_lazy("Galerias-Panel")
-    fields = ["nombre","cita", "ubicacion", "biografia", "foto"]
 
 class ArtistaDetalle(DetailView):
     model = Artista
@@ -275,7 +212,61 @@ class GaleriaDetalle(DetailView):
         context['comentarios'] = Comentario.objects.filter(galeria=self.object)
         context['obras_en_galeria'] = self.object.obras.all()
         return context
+ 
+
+# Vistas de Panel de control (cuando el user está logueado y es admin)
+class ArtistasPanel(LoginRequiredMixin,ListView):
+    model =  Artista
+    template_name = plantillas['artistas_panel']    
+ 
+class ObrasPanel(LoginRequiredMixin,ListView):
+    model =  Obra
+    template_name = plantillas['obras_panel']
+
+class GaleriasPanel(LoginRequiredMixin,ListView):
+    model =  Galeria
+    template_name = plantillas['galerias_panel']
+
+class ArtistaCreate(LoginRequiredMixin,CreateView):
+
+    model = Artista
+    template_name = plantillas['artista_form']
+    success_url = reverse_lazy("Artistas-Panel")
+    form_class = ArtistaFormulario
+
+class ObraCreate(LoginRequiredMixin,CreateView):
+
+
+    model = Obra
+    template_name = plantillas['obra_form']
+    success_url = reverse_lazy("Obras-Panel")
+    fields = ["nombre","cita","anio","material","biografia", "foto","artista","galeria"]
     
+class GaleriaCreate(LoginRequiredMixin,CreateView):
+
+    model = Galeria
+    template_name = plantillas['galeria_form']
+    success_url = reverse_lazy("Galerias-Panel")
+    fields = ["nombre","cita", "ubicacion", "biografia", "foto"]
+    
+class ArtistaEditar(LoginRequiredMixin,UpdateView):
+    model  = Artista
+    template_name = plantillas['artista_editar']
+    success_url = reverse_lazy("Artistas-Panel")
+    form_class = ArtistaFormulario
+
+class ObraEditar(LoginRequiredMixin,UpdateView):
+    model  = Obra
+    template_name = plantillas['obra_editar']
+    success_url = reverse_lazy("Obras-Panel")
+    fields = ["nombre","cita","anio","material","biografia", "foto","artista","galeria"]
+
+class GaleriaEditar(LoginRequiredMixin,UpdateView):
+    model  = Galeria
+    template_name = plantillas['galeria_editar']
+    success_url = reverse_lazy("Galerias-Panel")
+    fields = ["nombre","cita", "ubicacion", "biografia", "foto"]
+   
 class ArtistaEliminar(LoginRequiredMixin,DeleteView):
     model = Artista
     success_url = reverse_lazy("Artistas-Panel")
