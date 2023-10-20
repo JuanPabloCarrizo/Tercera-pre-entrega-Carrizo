@@ -1,0 +1,33 @@
+{% extends 'GaleriaApp/padre.html' %}
+
+{% load static %}
+
+{% block title %} Editar usuario {% endblock title %}
+
+{% block todo %}
+<body>
+    <h1>Lista de Creados</h1>
+    {% if users|length > 1 %}
+    
+    <ul>
+        {% for user in users %}
+           
+            {% if user.is_superuser%}  <!--No quiero que se pueda borrar el super user-->
+            {% else %}
+            <li>             
+                {{ user.username }}
+                    <a href="{% url 'Eliminar-Usuario' user.id %}">Eliminar</a>
+                    
+            </li>
+           {% endif %}
+        {% endfor %}
+    </ul>
+
+    {% else %}
+        <p>No hay usuarios disponibles.</p>
+    {% endif %}
+
+</body>
+</html>
+
+{% endblock todo %}

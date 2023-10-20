@@ -5,26 +5,6 @@
 
 {% block todo %}
 
-
-<!-- <div class="container px-4 px-lg-5">
-
-    Heading Row-->
-    <!-- <div class="row gx-4 gx-lg-5 align-items-center my-5">
-        <div class="card text-white bg-secondary my-5 py-4 text-center">
-            <div class="card-body"><p class="text-white m-0"></p></div>
-        </div>   
-
-        <form action="" method="POST">
-            {% csrf_token %}
-
-            <p>¿Estás seguro de eliminar "{{ object }}"?</p>
-            <input type ="submit" value="Eliminar">
-            <a href="{% url 'Artistas-Panel' %}" class="btn btn-success">Cancelar</a>
-
-        </form>
-    </div>
-</div> -->
-
 <div class="container px-4 px-lg-5">
     <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
@@ -43,7 +23,7 @@
                                     <p class="card-text">¿Estás seguro de eliminar?</p>
                                     <!-- <a class="btn btn-primary" type="submit">Eliminar</a> -->
                                     <input type="submit" value="Eliminar">
-                                    <a href="{% url 'Artistas-Panel' %}" class="btn btn-success">Cancelar</a>
+                                    <a href="{% url 'Obras-Panel' %}" class="btn btn-success">Cancelar</a>
                                     </div>
                                 </div>
                     </div>

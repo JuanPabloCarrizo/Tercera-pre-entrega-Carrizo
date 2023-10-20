@@ -23,7 +23,8 @@
                 {% csrf_token %}
               
                         <h5 class="card-title">{{ object.nombre }}</h5>
-                        <p class="card-text">¿Estás seguro de eliminar?</p>
+                        <p class="card-text">¿Estás seguro de eliminar la galería?</p>
+                        <p class="card-text">También serán eliminadas todas las obras.</p>
                         <input type="submit" value="Eliminar">
                         <a href="{% url 'Galerias-Panel' %}" class="btn btn-success">Cancelar</a>
             </form>

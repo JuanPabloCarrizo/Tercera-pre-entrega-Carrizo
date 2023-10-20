@@ -1,3 +1,4 @@
+from datetime import timezone
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from GaleriaApp.models import *
@@ -233,6 +234,12 @@ class ArtistaCreate(LoginRequiredMixin,CreateView):
     template_name = plantillas['artista_form']
     success_url = reverse_lazy("Artistas-Panel")
     form_class = ArtistaFormulario
+    
+    # Esto es para que guarde en la base de datos, el nombre del usuario que hizo el post.
+    def form_valid(self, form):
+        form.instance.autor_post = self.request.user.get_full_name()
+        form.instance.fecha_post = timezone.now()
+        return super().form_valid(form)    
 
 class ObraCreate(LoginRequiredMixin,CreateView):
 
@@ -240,14 +247,30 @@ class ObraCreate(LoginRequiredMixin,CreateView):
     model = Obra
     template_name = plantillas['obra_form']
     success_url = reverse_lazy("Obras-Panel")
-    fields = ["nombre","cita","anio","material","biografia", "foto","artista","galeria"]
+   # fields = ["nombre","cita","anio","material","biografia", "foto","artista","galeria"]
+    
+    form_class = ObraFormulario
+    
+    # Esto es para que guarde en la base de datos, el nombre del usuario que hizo el post.
+    def form_valid(self, form):
+        form.instance.autor_post = self.request.user.get_full_name()
+        form.instance.fecha_post = timezone.now()
+        return super().form_valid(form)  
     
 class GaleriaCreate(LoginRequiredMixin,CreateView):
 
     model = Galeria
     template_name = plantillas['galeria_form']
     success_url = reverse_lazy("Galerias-Panel")
-    fields = ["nombre","cita", "ubicacion", "biografia", "foto"]
+    #fields = ["nombre","cita", "ubicacion", "biografia", "foto"]
+    
+    form_class = GaleriaFormulario
+    
+    # Esto es para que guarde en la base de datos, el nombre del usuario que hizo el post.
+    def form_valid(self, form):
+        form.instance.autor_post = self.request.user.get_full_name()
+        form.instance.fecha_post = timezone.now()
+        return super().form_valid(form)  
     
 class ArtistaEditar(LoginRequiredMixin,UpdateView):
     model  = Artista

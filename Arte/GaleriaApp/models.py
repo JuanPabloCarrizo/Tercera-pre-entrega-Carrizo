@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -11,6 +12,9 @@ class Artista(models.Model):
     movimiento=models.CharField(max_length=100)
     biografia = models.CharField(max_length=1500, null=True, blank=True)
     foto = models.ImageField(upload_to='artistas', null=True, blank=True)
+    autor_post = models.CharField(max_length=100,null=True, blank=True,editable=False)
+    fecha_post = models.DateField(default=timezone.now, editable=False)
+
     
     
     def __str__(self):
@@ -36,7 +40,10 @@ class Galeria(models.Model):
     cita = models.CharField(max_length=500, null=True, blank=True)
     ubicacion=models.CharField(max_length=200)
     biografia = models.CharField(max_length=1500, null=True, blank=True)
-    foto = models.ImageField(upload_to='galerias', null=True, blank=True)    
+    foto = models.ImageField(upload_to='galerias', null=True, blank=True)
+    autor_post = models.CharField(max_length=100,null=True, blank=True,editable=False)
+    fecha_post = models.DateField(default=timezone.now, editable=False)
+    
 
     
     def obras_en_galeria(self):
@@ -68,6 +75,9 @@ class Obra(models.Model):
     foto = models.ImageField(upload_to='obras',null=True, blank=True)
     artista = models.ForeignKey(Artista, on_delete=models.CASCADE, related_name='obras',null=False)
     galeria = models.ForeignKey(Galeria, on_delete=models.CASCADE, related_name='obras',null=False)
+    autor_post = models.CharField(max_length=100,null=True, blank=True,editable=False)
+    fecha_post = models.DateField(default=timezone.now, editable=False)
+
 
     
     def __str__(self):
