@@ -47,35 +47,6 @@ class ObraFormulario(forms.ModelForm):
         return foto
  
     
-# class ObraFormulario(forms.Form):
-#     nombre=forms.CharField(required=True)
-#     cita = forms.CharField(required=True)
-#     anio=forms.IntegerField(label="Año",required=True)
-#     material=forms.CharField(required=True)
-#     biografia = forms.CharField(required=True)
-#     foto = forms.ImageField(required=True)
-#     artista = forms.ModelChoiceField(queryset=Artista.objects.all(), empty_label=None)
-#     galeria = forms.ModelChoiceField(queryset=Galeria.objects.all(), empty_label=None)
-    
-#     def clean_foto(self):
-#         foto = self.cleaned_data.get('foto')
-#         if not foto:
-#             raise forms.ValidationError("El campo 'foto' es requerido.")
-#         return foto
-    
-# class GaleriaFormulario(forms.Form):
-#     nombre=forms.CharField(required=True)
-#     cita = forms.CharField(required=True)
-#     ubicacion=forms.CharField(label="Ubicación", required=True)
-#     biografia = forms.CharField(required=True)
-#     foto = forms.ImageField(required=True)
-    
-#     def clean_foto(self):
-#         foto = self.cleaned_data.get('foto')
-#         if not foto:
-#             raise forms.ValidationError("El campo 'foto' es requerido.")
-#         return foto
-    
 class GaleriaFormulario(forms.ModelForm):
     class Meta:
         model = Galeria
@@ -86,18 +57,7 @@ class GaleriaFormulario(forms.ModelForm):
         if not foto:
             raise forms.ValidationError("El campo 'foto' es requerido.")
         return foto
-    
-    
-    
-class BuscarArtistaForm(forms.Form):
-    nombre=forms.CharField(required=True)
-
-class BuscarObraForm(forms.Form):
-    nombre=forms.CharField(required=True)
-    
-class BuscarGaleriaForm(forms.Form):
-    nombre=forms.CharField(required=True)
-    
+     
     
 # form para los comentarios de los usuarios
 class ComentarioForm(forms.ModelForm):

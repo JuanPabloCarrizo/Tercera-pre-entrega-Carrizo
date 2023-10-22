@@ -2,143 +2,113 @@
 {% load static %}
 
 {% block todo %}
+<style>
+    .boton-flotante {
+        position: fixed;
+        bottom: 80px; /* Ajusta la distancia desde la parte inferior */
+        right: 60px; /* Ajusta la distancia desde la derecha */
+    }
+</style>
+<br>
+<br>
 
 <div class="container px-4 px-lg-5">
-
-    <!-- Heading Row-->
-    <div class="row gx-4 gx-lg-5 align-items-center my-5">
-       
-        <div class="card h-100">
-            <div class="col-lg-7">
-                <img class="img-fluid rounded mb-4 mb-lg-0" style="max-width: 200; max-height: 200px;" src="{% static 'GaleriaApp/assets/img/perfil_jp.jpeg' %}" alt="..." />
-            </div>
-     
-                <div class="col-lg-10">
-                    <h1 class="font-weight-light">Juan Pablo Carrizo</h1>
-                    <p>Desarrollador backend - Guitarrista y compositor en <a href="https://www.instagram.com/automaticooficial/">Aütomático</a>.</p>
-                    <a class="btn btn-primary" href="https://github.com/JuanPabloCarrizo" target="_blank">Github</a>  <a class="btn btn-primary" style="background-color: green;" href="https://open.spotify.com/intl-es/artist/0F3ZJuR6nx8KCK6Kx3hYMs?si=6iiYkoZxSn6jTZSAly6uCA" target="_blank">Spotify</a>
-                    <br>
-                    <ul>
-                        <li><a href="#experience">Experiencia general</a></li>
-                        <li><a href="#skills">Habilidades Informáticas</a></li>
-                        <li><a href="#languages">Idiomas</a></li>
-                        <li><a href="#education">Educación</a></li>
-                        <li><a href="#work-experience">Experiencia Laboral</a></li>
-
-                    </ul>
-                    <br>
-                </div>
-                <br>
-                <div class="col-lg-20">
-                    <div class="col-lg-30">
-                        <div id="experience" class="section">
-                            <h3>Mi Experiencia</h3>
-                            <p>En mi viaje profesional, he explorado una variedad de lenguajes de programación, incluyendo:</p>
-                            <ul>
-                                <li>COBOL</li>
-                                <li>JAVA</li>
-                                <li>.NET</li>
-                                <li>! AHORA PYTHON Y DJANGO !</li>
-                                <li>.. y si, no me gusta el FRONTEND.</li>
-                                <li>Además de músico aficionado, me gustan los desafíos... Excepto el front end.</li>
-                            </ul>
-                        </div>
-                                        
-                        <div id="skills" class="section">
-                            <h3>Habilidades Informáticas</h3>
-                            <ul>
-                                <li>Microsoft Office</li>
-                                <li>Microsoft Visual Studio</li>
-                                <li>Base de datos Oracle</li>
-                                <li>Wordpress</li>
-                            </ul>
-                        </div>
-                    
-                        <div id="languages" class="section">
-                            <h3>Idiomas</h3>
-                            <p>Inglés: C2 Proficiente. EF SET Certificate 79/100</p>
-                            <p>Italiano: Nivel inicial.</p>
-                        </div>
-                    
-                        <div id="education" class="section">
-                            <h3>Educación</h3>
-                            <p>2022<br>
-                            Curso "Negociación y Resolución de Conflictos como Habilidad Directiva" del Plan Federal de Formación y Capacitación en Gestión Pública. CoFeFuP e INAP, a través de la Universidad Nacional de Lomas de Zamora.</p>
-                    
-                            <p>2019<br>
-                            IRAM. Curso MG-15 Planificación y control de gestión: Cuadro de mando integral y mapas estratégicos.</p>
-                            
-                            <p>2019<br>
-                            IRAM. Curso GC-08 Formación de auditores internos en sistemas de gestión de la calidad según la norma IRAM-ISO 19011.</p>
-                            
-                            <p>2002 - 2005<br>
-                            Tecnicatura en Diseño Industrial. Instituto Tecnológico Superior (I.T.E.S). Cursado hasta segundo año.</p>
-                            
-                            <p>2001 - 2003<br>
-                            Licenciatura en Ciencias de la Computación. Universidad Nacional de San Luis. Cursado hasta segundo año.</p>
-                        </div>
-                    
-                        
-                        <div id="work-experience" class="section">
-                            
-                            <h3>Experiencia Laboral</h3>
-                            <p>2007 - 2015<br>
-                            Desarrollador de software Semi Senior en INDRA. La Punta, San Luis, Arg.</p>            
-                            <ul>
-                                <li>Resolución de incidencias.</li>
-                                <li>Desarrollo de nuevas aplicaciones.</li>
-                                <li>Planificación y distribución de asignaciones.</li>
-                                <li>Control de calidad y puesta en producción.</li>
-                                <li>Análisis técnico y funcional de los requerimientos.</li>
-                                <li>Soporte técnico a miembros del equipo para clientes como Banco Pastor, Telefónica España, Endesa España, Endesa Latam, Banco Santander Río y Ceicom.</li>
-                            </ul>
-                    
-                            <p>2017 - 2019<br>
-                            Desarrollador de soluciones basadas en .NET en el Ministerio de Producción, Gobierno de la Provincia de San Luis.</p>
-                        
-                            <ul>
-                                <li>Análisis y desarrollo de sistemas web basados en .NET para optimización de procesos de programas ministeriales.</li>
-                                <li>Comunicación con el cliente; análisis funcional y técnico; y desarrollo y testeo de aplicaciones web tanto internas como abiertas al público en general.</li>
-                                <li>Trabajos destacados: Sistema Portal Mosca de los Frutos, Sistema de cartilla de energías renovables, Sistema de inscripción y cálculo de residuos peligrosos, Sistema de fomento frutihortícola, Sistema de egresos e ingresos (covid-19), Sistema de registro de oficios (covid-19), Sistema de pases de circulación (covid-19).</li>
-                            </ul>
-                    
-                            <p>2019 - 2023<br>
-                            Responsable del sistema de gestión del Programa de Control y Erradicación de la Mosca de los Frutos en el Ministerio de Producción, Gobierno de la Provincia de San Luis.</p>
-                        
-                            <ul>
-                                <li>Creación, análisis y seguimiento de los objetivos de calidad y de sus procesos, así como también el acompañamiento a los responsables y directivos involucrados.</li>
-                                <li>Creación de procedimientos de trabajo y perfiles de puestos, análisis de contexto, riesgos y oportunidades, partes interesadas y propuestas de mejoras continuas, tratamiento de no conformidades, seguimiento y control de objetivos de calidad, tratamientos de desvíos, control sobre la información documentada, seguimiento de quejas y reclamos y encuestas de satisfacción.</li>
-                            </ul>
-
-                            <h3>Experiencia como Auditor Interno</h3>
-                            <p>Adicionalmente, he tenido el honor de servir como Auditor Interno de Sistemas de Gestión de Calidad en instituciones destacadas, tales como:</p>
-                            <ul>
-                                <li>Ministerio de Producción, Provincia de San Luis</li>
-                                <li>Ministerio de Hacienda, Provincia de San Luis</li>
-                                <li>Ministerio de Justicia y Culto, Provincia de San Luis</li>
-                            </ul>
-                        </div>
+    <div class="row">
+        <!-- Foto e información -->
+        <div class="col-lg-4">
+            <div class="card h-100">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img class="img-fluid rounded mb-4 mb-lg-0" style="max-width: 150px; max-height: 130px; padding-top: 20px; padding-left: 30px;" src="{% static 'GaleriaApp/assets/img/perfil_jp.jpeg' %}" alt="Foto de perfil" />
                     </div>
-                    
+                    <div class="col-lg-7">
+                        <h3 class="vollkorn-titulo-3">Juan Pablo Carrizo</h3>
+                        <h6>Desarrollador de software - Guitarrista y compositor en <a href="https://www.instagram.com/automaticooficial/">Aütomático</a>.</h6>
+                        <br>
+                        <div class="btn-group"> 
+                            <a class="btn btn-anto" href="https://www.linkedin.com/in/-juanpablocarrizo/" target="_blank">LinkedIn</a>
+                            <a class="btn btn-anto" style="background-color: green;" href="https://open.spotify.com/intl-es/artist/0F3ZJuR6nx8KCK6Kx3hYMs?si=6iiYkoZxSn6jTZSAly6uCA" target="_blank">Spotify</a>
+                        </div>
+                        <br>
+                        <br>
+                        <ul class="list-unstyled">
+                            <li><a href="#acerca-de-mi"><h6>Información personal</h6></a></li>
+                            <li><a href="#work-experience"><h6>Experiencia Laboral</h6></a></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <a href="#top" class="back-to-top">Ir Arriba</a>
-                <button onclick="goBack()" class="btn btn-success">Volver</button>              
-
+            </div>
         </div>
+        <!-- Acerca de este sitio -->
+        <div class="col-lg-8">
+            <div id="acerca-de" class="section">
+                <h3 class="vollkorn-titulo-2">Acerca de este sitio.</h3>
+                <h6>Aficionado a las expresiones artísticas, decidí que mi proyecto final sea sobre las obras y los artistas más famosos.</h6>
+                <h6>El administrador del sitio puede crear, editar y borrar cada una de las publicaciones.</h6>
+                <h6>como también, crear usuarios con rol de Staff para que lo asistan en la tarea.</h6>
+                <h6>La idea principalmente es poder navegar por donde le interés te lleve.</h6>
+                <h6>¡¡Si buscás algo en particular, tenés un buscador en la Navbar!!</h6>
+                <h6>En este proyecto vas a encontrar información sobre:</h6>
+                <ul>
+                    <li><h6>Artirtas</h6></li>
+                    <li><h6>Obras</h6></li>
+                    <li><h6>Galerías</h6></li>
+                    <li><h4>¡Además podés crear un usuario y comentar tus opiniones sobre arte!</h5></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
+    <!-- Resto de las secciones... -->
+    <div class="col-lg-8">
+        <!-- Acerca de mi -->
+        <div id="acerca-de-mi" class="section">
+            <h3 class="vollkorn-titulo-2">Información</h3>
+            <h6>Comencé a programar a partir de los 25 años en Cobol para bancos.</h6>
+            <h6>Luego me centré en la programación orientada a objetos y fué todo un cambio para mi.</h6>
+            <h6>A la par, aficionado a la música, empecé a componer y estuve en varias bandas hasta que formé Aütomático.</h6>
+            <h6>Algunos de mis intereses:</h6>
+            <ul>
+                <li>Desarrollo de software</li>
+                <li>Música</li>
+                <li>Afincionado a la ciencia ficción</li>
+                <li>El Señor de los Anillos</li>
+            </ul>
+         </div>
+        <!-- Experiencia Laboral -->
+        <div id="work-experience" class="section">
+            <h3 class="vollkorn-titulo-2">Experiencia</h3>
+            <h6>Trabajé como Desarrollador de Software, como Auditor interno Norma ISO 9001:2015 y</h6>
+            <h6>como Responsable de Gestión de Calidad</h6>
+            <h6>Algunos clientes y entidades donde trabajé:</h6>
+            <ul>
+                <li>Indra S.A S.I</li>
+                <li>Banco Sabadell</li>
+                <li>Telefónica España</li>
+                <li>Ministerio de Produccion, Provincia de San Luis</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row justify-content-center">
         <br>
         <br>
-    
-    </div>       
+        <button onclick="goBack()" class="btn btn-anto boton-flotante" style="width: 150px; height: 40px;">Volver</button>
+        <br>
+    </div>
 </div>
+<br>
+<br>
 
 <script>
     function goBack() {
-      window.history.back();
+        window.history.back();
     }
 </script>
-
-
 
 {% endblock todo %}

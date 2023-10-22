@@ -3,41 +3,72 @@
 
 {% block todo %}
 
+<style>
+    .boton-flotante {
+        position: fixed;
+        bottom: 80px; /* Ajusta la distancia desde la parte inferior */
+        right: 60px; /* Ajusta la distancia desde la derecha */
+    }
+</style>
 <!-- Page content-->
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-8">
-            <!-- Post content-->
-            <article>
-                <!-- Post header-->
-                <header class="mb-4">
-                    <!-- Post title-->
-                    <h1 class="fw-bolder mb-1">{{ artista.nombre }}</h1>
-                    <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2">{{artista.nacionalidad}}</div>
-                    <!-- Post categories-->
-                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{artista.movimiento}}</a>
-                </header>
-                <!-- Preview image figure-->
-                <div class="card" style="width: 18rem;">
-                <figure class="mb-4"><img class="img-fluid rounded" src="{{ artista.foto.url }}" alt="..." /></figure>
+        <!-- Columna para la imagen del artista -->
+        <div class="col-lg-4 mb-4">
+            <div class="card" style="width: 100%;">
+                <img class="card-img-top" src="{{ artista.foto.url }}" alt="Foto del artista" />
+                <div class="card-body">
+                    <!-- Puedes agregar detalles adicionales aquí -->
                 </div>
-                <!-- Post content-->
-                <section class="mb-5">
-                    <h2 class="fw-bolder mb-4 mt-5">"{{ artista.cita}}"</h2>
-                </section>
+            </div>
+        </div>
+        <!-- Columna para la biografía y detalles del artista -->
+        <div class="col-lg-8 mb-4">
+            <article>
+                <!-- Post header -->
+                <header class="mb-4">
+                    <!-- Post title -->
+                    <h1 class="fw-bolder mb-1">{{ artista.nombre }}</h1>
+                    <!-- Post meta content -->
+                    <div class="text-muted fst-italic mb-2">{{ artista.nacionalidad }}</div>
+                    <!-- Post categories -->
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ artista.movimiento }}</a>
+                </header>
+                <!-- Biografía -->
                 <section class="mb-5">
                     <h6 class="">{{ artista.biografia }}</h6>
                 </section>
                 <section class="mb-5">
-                    <div class="text-muted fst-italic mb-2">fecha: {{artista.fecha_post}}</div><a class="badge bg-secondary text-decoration-none link-light" href="#!">Autor: {{artista.autor_post}}</a>
+                    <div class="text-muted fst-italic mb-2">Fecha: {{ artista.fecha_post }}</div><a class="badge bg-secondary text-decoration-none link-light" href="#!">Autor: {{ artista.autor_post }}</a>
                 </section>
             </article>
-            <!-- Comments section-->
-            <section class="mb-5" id="seccion-comentarios">
+            <br>
+            <br>
+            <br>
+            <!-- Sección de obras del artista -->
+            <h3>Obras del artista:</h3>
+            <div class="row">
+                {% for obra in obras_del_artista %}
+                    <div class="col-lg-3 mb-3">
+                        <div class="card">
+                            <a href="{% url 'Obra-Detalle' obra.id %}"><img class="card-img-top" src="{{ obra.foto.url }}" alt="Foto de la obra" style="max-width: 100; max-height: 200px;"/></a>
+                            
+                            <div class="card-body">
+                                <p class="card-text">{{ obra.nombre }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Sección de comentarios centrados y que ocupan todo el ancho -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <section id="seccion-comentarios">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <!-- Commentarios form-->
+                        <!-- Comentarios form -->
                         <h2>Comentarios</h2>
                         <ul>
                             {% for comentario in comentarios %}
@@ -47,7 +78,7 @@
                                 </li>
                             {% endfor %}
                         </ul>
-                         <!--Agrego validación para que no puedan comentar si no están logueados. -->
+                        <!-- Agrego validación para que no puedan comentar si no están logueados. -->
                         {% if user.is_authenticated %}
                         <h6>Agregar Comentario</h6>
                         <form method="post">
@@ -57,35 +88,26 @@
                         </form>
                         {% endif %}
                     </div>
-                </div>                
+                </div>    
+                <div class="row justify-content-center">
+                    
+                    <br>
+                    <br>
+                   
+                    <button onclick="goBack()" class="btn btn-anto boton-flotante" style="width: 150px; height: 40px;">Volver</button>
+
+                    <br>
+                </div>              
             </section>
-            <h3>Obras del artista:</h3>
-            <ul>
-            {% for obra in obras_del_artista %}
-                <li>{{ obra.nombre }}</li>
-                <a href="{% url 'Obra-Detalle' obra.id %}">
-                     <img class="img-fluid rounded mb-4 mb-lg-0" style="max-width: 200; max-height: 200px;" src="{{ obra.foto.url }}" alt="..." />
-                </a>
-            {% endfor %}
-            </ul>
-            <br>
-            <button onclick="goBack()" class="btn btn-success">Volver</button>
         </div>
-            
-                
     </div>
+
 </div>
-
+<br>
 <script>
-
-function goBack() {
-          window.history.back();
-       }
+    function goBack() {
+        window.history.back();
+    }
 </script>
 
-      
-    
-
-
-    
-{% endblock todo%}
+{% endblock todo %}

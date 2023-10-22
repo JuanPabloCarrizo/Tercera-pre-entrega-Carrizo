@@ -5,15 +5,31 @@
 
 {% block todo %}
 
-
-
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            
-            {{ form.as_p}}
-
-            <button type="submit" class="btn btn-primary">Guardar</button>
-        </form>
+<!-- Section-->
+<section class="py-1">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-lg-5 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-2 justify-content-center">
+                     
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                
+                                {{ form.as_p}}
+                    
+                                <button type="submit" class="btn btn-anto" >Guardar</button>
+                            </form>
+                            <br>
+                            <h6>Tené en cuenta que solo podrás crear obras que tengan un autor y una galería.</h6>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 {% endblock todo %}

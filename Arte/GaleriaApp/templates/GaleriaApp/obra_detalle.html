@@ -2,44 +2,62 @@
 {% load static %}
 
 {% block todo %}
-
+<style>
+.boton-flotante {
+    position: fixed;
+    bottom: 80px; /* Ajusta la distancia desde la parte inferior */
+    right: 60px; /* Ajusta la distancia desde la derecha */
+}
+</style>
 <!-- Page content-->
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-8">
-            <!-- Post content-->
+        <!-- Columna para la imagen de la obra -->
+        <div class="col-lg-4 mb-4">
+            <div class="card" style="width: 100%;">
+                <img class="card-img-top" src="{{ obra.foto.url }}" alt="Foto de la obra" />
+                <div class="card-body">
+                    <!-- Puedes agregar detalles adicionales aquí -->
+                </div>
+            </div>
+        </div>
+        <!-- Columna para la biografía y detalles de la obra -->
+        <div class="col-lg-8 mb-4">
             <article>
-                <!-- Post header-->
+                <!-- Post header -->
                 <header class="mb-4">
-                    <!-- Post title-->
+                    <!-- Post title -->
                     <h1 class="fw-bolder mb-1">{{ obra.nombre }}</h1>
-                    <!-- Post meta content-->
-                    <div class="text-muted fst-italic mb-2"><a href="{% url 'Artista-Detalle' obra.artista.id %}">{{obra.artista}}</a></div>
-                    <div class="text-muted fst-italic mb-2">{{obra.anio}}</div>
-                    <div class="text-muted fst-italic mb-2"><a href="{% url 'Galeria-Detalle' obra.galeria.id %}">{{obra.galeria}}</a></div>
+                    <!-- Post meta content -->
+                    <div class="text-muted fst-italic mb-2">{{ obra.cita }}</div>
+                    <!-- Post categories -->
+                    
+                    <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'Artista-Detalle' obra.artista.id %}">{{obra.artista}}</a>
+                    <a class="badge bg-secondary text-decoration-none link-light" href="{% url 'Galeria-Detalle' obra.galeria.id %}">{{obra.galeria}}</a>
                     <!-- Post categories-->
                     <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{obra.material}}</a>
                 </header>
-                <!-- Preview image figure-->
-                <div class="card" style="width: 18rem;">
-                <figure class="mb-4"><img class="img-fluid rounded" src="{{ obra.foto.url }}" alt="..." /></figure>
-                </div>
-                <!-- Post content-->
-                <section class="mb-5">
-                    <h2 class="fw-bolder mb-4 mt-5">"{{ obra.cita}}"</h2>
-                </section>
+                <!-- Biografía -->
                 <section class="mb-5">
                     <h6 class="">{{ obra.biografia }}</h6>
                 </section>
                 <section class="mb-5">
-                    <div class="text-muted fst-italic mb-2">fecha: {{obra.fecha_post}}</div><a class="badge bg-secondary text-decoration-none link-light" href="#!">Autor: {{obra.autor_post}}</a>
+                    <div class="text-muted fst-italic mb-2">Fecha: {{ obra.fecha_post }}</div><a class="badge bg-secondary text-decoration-none link-light" href="#!">Autor: {{ obra.autor_post }}</a>
                 </section>
             </article>
-            <!-- Comments section-->
-            <section class="mb-5" id="seccion-comentarios">
+        </div>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <!-- Sección de comentarios centrados y que ocupan todo el ancho -->
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <section id="seccion-comentarios">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <!-- Commentarios form-->
+                        <!-- Comentarios form -->
                         <h2>Comentarios</h2>
                         <ul>
                             {% for comentario in comentarios %}
@@ -49,32 +67,41 @@
                                 </li>
                             {% endfor %}
                         </ul>
-                        <!--Agrego validación para que no puedan comentar si no están logueados. -->
+                        <!-- Agrego validación para que no puedan comentar si no están logueados. -->
                         {% if user.is_authenticated %}
-                        <h2>Agregar Comentario</h2>
+                        <h6>Agregar Comentario</h6>
                         <form method="post">
                             {% csrf_token %}
                             {{ comentario_form.as_p }}
-                            <button type="submit">Comentar</button>
+                            <button class="btn btn-anto" type="submit">Comentar</button>
                         </form>
                         {% endif %}
                     </div>
-                </div>                
-            </section>
-            <button onclick="goBack()" class="btn btn-success">Volver</button>
+                </div>    
+                <div class="row justify-content-center">
+                    
+                        <br>
+                        <br>
+                       
+                        <button onclick="goBack()" class="btn btn-anto boton-flotante" style="width: 150px; height: 40px;">Volver</button>
 
+                        <br>
+                </div>            
+            </section>
         </div>
     </div>
+
 </div>
 
-      
+<br>
+<br>
+<br>
+<br>
+
 <script>
-   
     function goBack() {
-      window.history.back();
+        window.history.back();
     }
 </script>
-
-
     
 {% endblock todo%}

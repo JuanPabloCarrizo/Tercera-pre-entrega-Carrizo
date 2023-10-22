@@ -10,75 +10,97 @@
         <title>{% block title %} Galeria de Arte {% endblock title %}</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'GaleriaApp/assets/favicon.ico' %}" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn+SC" />
+
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'GaleriaApp/css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark margin-bottom 0px">
-            <div class="container px-5">
-                {% if user.is_authenticated %}
-                <a class="navbar-brand" href="#page-top">¡Hola {{ user.first_name }}!</a>
-                 {% endif %}
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Inicio' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Artistas' %}">Artistas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Obras' %}">Obras</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Galerias' %}">Galerías</a></li>
-                        {% if user.is_authenticated %}
-                            {% if user.is_superuser or user.is_staff %} 
-                                <div class="dropdown">
-                                    <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Panel de control
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'Artistas-Panel' %}">Artistas</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'Obras-Panel' %}">Obras</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'Galerias-Panel' %}">Galerias</a></li>
-                                    </ul>
-                                </div>
-                            {% endif %}
-                        <td> - </td>        
-                        <div class="dropdown">                            
-                            <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {% if user_avatar %}<img height="40px" src="{{user_avatar}}"/> {% endif %}    Cuenta
-                            </button>
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="{% url 'Edit' %}">Editar</a></li>
-                              <li><a class="dropdown-item" href="{% url 'Password' %}">Cambiar contraseña</a></li>
-                              {% if user.is_superuser %} 
-                              <li><a class="dropdown-item" href="{% url 'Crear-Usuario' %}">Crear Usuario</a></li>
-                              <li><a class="dropdown-item" href="{% url 'Listar-Usuarios' %}">Listar Usuario</a></li>
-                              {% endif %}
-                              <li><a class="dropdown-item" href="{% url 'Logout' %}">Desloguear</a></li>
-                            </ul>
-                          </div>
-                        {% else %}
-                            <li class="nav-item"><a class="nav-link" href="{% url 'Login' %}">Login</a></li>
-                        {% endif %}
-                        
-                       </ul>
-                </div>
-            </div>
-        </nav>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+        </button>
+          <form class="d-flex" method="get" role="search"action="{% url 'Busqueda' %}">                                  
+            <select name="model" class="form-select form-select-sm me-2">
+              <option value="Artistas" {% if selected_model == "Artistas" %}selected{% endif %}>Artistas</option>
+              <option value="Obras" {% if selected_model == "Obras" %}selected{% endif %}>Obras</option>
+              <option value="Galerias" {% if selected_model == "Galerias" %}selected{% endif %}>Galerias</option>
+            </select>
+            <input type="search" name="q" value="{{ query }}" class="form-control form-control-sm me-2" placeholder="Buscar" aria-label="Buscar">
+            <button type="submit" class="btn btn-buscar">Buscar</button>                               
+          </form>
+      </div>
+      <div class="collapse navbar-collapse pull-right" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 pull-right">
+          <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'Inicio' %}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Artistas' %}">Artistas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Obras' %}">Obras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Galerias' %}">Galerías</a>
+          </li>         
+            
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle margin-left" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {% if user_avatar %}<img height="40px" src="{{user_avatar}}"/> {% endif %}{% if user.first_name%} {{ user.first_name }}{% else %} Cuenta {% endif %}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="{% url 'Edit' %}">Editar</a></li>
+              <li><a class="dropdown-item" href="{% url 'Password' %}">Cambiar contraseña</a></li>
+              {% if user.is_superuser or user.is_staff %}
+              <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'Artistas-Panel' %}">Ver Artistas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Obras-Panel' %}">Ver Obras</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Galerias-Panel' %}">Ver Galerias</a></li>
+              {% endif %}
+              {% if user.is_superuser %} 
+              <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'Crear-Usuario' %}">Crear usuario</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Listar-Usuarios' %}">Listar usuarios</a></li>
+              {% endif %}
+              <li><a class="dropdown-item" href="{% url 'Logout' %}">Desloguear</a></li>
+            {% else %}
+              <li class="nav-item"><a class="nav-link" href="{% url 'Login' %}">Login</a></li>
 
+            {% endif %}      
 
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link"></a></li>
+          <li class="nav-item"><a class="nav-link"></a></li>
+        </ul>
+      </div>
+    </nav>
+
+        <br>
+        <br>
         {% block todo %}
         {% endblock todo %}
 
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-4 px-lg-5">
-                <p class="m-0 text-center text-white">Copyright &copy; Juan Pablo Carrizo 2023 </p>
-                <p class="m-0 text-center text-white"><a class="nav-link" href="{% url 'About' %}">Acerca de mí</a></p>
-            </div>
-            
-        </footer>
+        <!-- <footer class="py-5 bg-dark"> -->
+
+
+                <div class="footer">
+                    <p class="m-0 text-center text-white">Copyright &copy; Juan Pablo Carrizo 2023 </p>
+                    <p class="m-0 text-center text-white"><a class="nav-link" href="{% url 'About' %}">Acerca de mí</a></p>
+                </div>
+
+
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{% static 'js/scripts.js' %}"></script>
     </body>
 </html>
+
+

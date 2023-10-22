@@ -3,15 +3,16 @@
 
 {% block todo %}
 
-<br><div class="container text-center">
+<br>
+<br>
+<div class="container text-center">
   <h1>{% block title %} Artistas {% endblock title %}</h1>
 </div>
 <div class="container text-center">
-    <a href="{% url 'Artista-Nuevo' %}" class="btn btn-success">Agregar artista</a>
+    <a href="{% url 'Artista-Nuevo' %}" class="btn btn-anto">Agregar artista</a>
 </div>
 <br>
 <br>
-<!-- Esto es el formulario de alta -->
 
     <div class="container text-center">
         <div class="row align-items-start">
@@ -19,22 +20,19 @@
           <div class="col">
 
             <div class="card" style="width: 18rem;">
-              <img src="{{ artista.foto.url }}" class="card-img-top" alt="..." style="max-width: 100; max-height: 300px;">
+              <img src="{{ artista.foto.url }}" class="card-img-top" alt="..." style="max-width: 100; max-height: 200px;">
                 <div class="card-body">
                   <h5 class="card-title">{{ artista.nombre  }} </h5>
-                  <a href="{% url 'Artista-Detalle' artista.id %}" class="btn btn-success">Ver</a>
-                  <a href="{% url 'Artista-Editar' artista.id %}" class="btn btn-info">Editar</a>
-                  <a href="{% url 'Artista-Eliminar' artista.id %}" class="btn btn-danger">Eliminar</a>
+                  <a href="{% url 'Artista-Detalle' artista.id %}" class="btn btn-anto">Ver</a>
+                  <a href="{% url 'Artista-Editar' artista.id %}" class="btn btn-anto">Editar</a>
+                  <a href="{% url 'Artista-Eliminar' artista.id %}" class="btn btn-anto">Eliminar</a>
                 </div>
             </div>
           </div>
           {% endfor %}
-          <br>
         </div>
-    </div>
+    </div> 
   <br>
-
-
-
-    
+  
+   
 {% endblock todo%}

@@ -99,9 +99,20 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  /*background-color: var(--bs-body-bg);*/
+  background-color: #F1EFEB;
+  font-family: 'Montserrat', sans-serif;
+
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /*background-image: url('/static/GaleriaApp/assets/img/collage.jpg'); /* Reemplaza 'ruta_de_la_imagen.jpg' con la ruta de tu imagen de fondo */
+  /* background-size: cover; Ajusta el tamaño de la imagen para que cubra todo el fondo */
+  /*background-position: center; Ajusta la posición de la imagen en el centro */
+  /*background-repeat: no-repeat; Evita que la imagen se repita */
+
 }
 
 hr {
@@ -10874,3 +10885,89 @@ table {
 .form-group {
         margin-bottom: 15px;
     }
+
+/*jpcarrizo*/
+.btn-anto{
+ border-radius: 37px;
+ background: var(--Naranja, #FF7B47);
+ box-shadow: 0px 2px 4px 0px #BDBDBD;
+}
+.btn-buscar{
+  border-radius: 37px;
+  background: var(--Naranja, #FF7B47);
+  box-shadow: 0px 2px 4px 0px #000000;
+ }
+.wrapper {
+  flex: 1;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #343a40; /* Cambia el color de fondo según tu preferencia */
+  color: white; /* Cambia el color de texto según tu preferencia */
+  text-align: center; /* Centra el contenido del footer */
+  padding: 10px 0; /* Ajusta el relleno superior e inferior según tus preferencias */
+  z-index: 1;
+}
+.boton-flotante {
+  position: fixed;
+  bottom: 20px; /* Ajusta la distancia desde la parte inferior */
+  right: 20px; /* Ajusta la distancia desde la derecha */
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%; /* Asegúrate de que la imagen ocupe todo el ancho */
+}
+
+.image-container h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  margin: 0;
+}
+
+/* Clase para los títulos con la fuente Vollkorn SC */
+.vollkorn-titulo {
+  font-family: 'Vollkorn SC', serif;
+  color: var(--text-color, var(--Azul, #252B42));
+  font-family: Vollkorn SC;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 60px; /* 100% */
+  letter-spacing: 0.2px;
+}
+.vollkorn-titulo-2 {
+  font-family: 'Vollkorn SC', serif;
+  color: var(--text-color, var(--Azul, #252B42));
+  font-family: Vollkorn SC;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 60px; /* 100% */
+  letter-spacing: 0.2px;
+}
+
+.vollkorn-titulo-3 {
+  font-family: 'Vollkorn SC', serif;
+  color: var(--text-color, var(--Azul, #252B42));
+  font-family: Vollkorn SC;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 60px; /* 100% */
+  letter-spacing: 0.2px;
+}
+
+
+ 
+  

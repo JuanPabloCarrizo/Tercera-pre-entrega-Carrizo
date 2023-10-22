@@ -3,54 +3,64 @@
 
 {% block todo %}
 
-<div class="container px-4 px-lg-5">
+<style>
+    .boton-flotante {
+        position: fixed;
+        bottom: 80px; /* Ajusta la distancia desde la parte inferior */
+        right: 60px; /* Ajusta la distancia desde la derecha */
+    }
+</style>
 
-    <!-- Heading Row-->
-    <div class="row gx-4 gx-lg-5 align-items-center my-5">
-        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'GaleriaApp/assets/img/collage.jpg' %}" alt="..." /></div>
-        <div class="col-lg-5">
-            <h1 class="font-weight-light">Artistas, obras y galerias</h1>
-            <p>Pintores famosos de todos los tiempos, sus obras y los lugares donde se encuentran.</p>
-            <a class="btn btn-primary" href="#scroll">¡Descubrilos!</a>  <a class="btn btn-primary" style="background-color: green;" href="#">¡Buscar!</a>
-        </div>
-    </div>       
-</div>
-
-<div class="card text-white bg-secondary my-5 py-4 text-center">
-    <div class="card-body"><p class="text-white m-0">Galeria de Arte - Online</p></div>
-</div>
-<!-- Page Content-->
-<div class="container px-4 px-lg-5" id="scroll">
-    <!-- Content Row-->
-    <div class="row gx-4 gx-lg-5">
-        <div class="col-md-4 mb-5">
-            <div class="card h-100">
-                <div class="card-body" style="background-color:darkkhaki;">
-                    <h2 class="card-title">Artistas</h2>
-                    <p class="card-text">Muchos pintores.</p>
-                </div>
-                <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Artistas' %}">¡Ver todos!</a></div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-5">
-            <div class="card h-100">
-                <div class="card-body" style="background-color:aquamarine;">
-                    <h2 class="card-title">Obras</h2>
-                    <p class="card-text">Muchas pinturas?</p>
-                </div>
-                <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Obras' %}">¡Ver todas!</a></div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-5">
-            <div class="card h-100">
-                <div class="card-body" style="background-color:coral;">
-                    <h2 class="card-title">Galerias de arte</h2>
-                    <p class="card-text">Descrubrí galerias por todo el mundo.</p>
-                </div>
-                <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'Galerias' %}">¡Ver todas!</a></div>
+<div class="container px-4 px-lg-10">
+    <div class="row gx-4 gx-lg-8 align-items-center my-1">
+        <div class="col-lg-10">
+            <div class="image-container">
+                <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'GaleriaApp/assets/img/MANOS-TRANSPARENTE.png' %}" alt="..." />
+                <h1 class="vollkorn-titulo" style="position: absolute; background-color: transparent;top: 100px; left: 150px; padding: 10px; margin: 0;">Arte al alcance</h1>
+                <h1 class="vollkorn-titulo" style="position: absolute; background-color: transparent;top: 100px; left: 100px; padding: 60px; margin: 0;">de todos.</h1>
+                <h6  style="position: absolute; background-color: transparent;top: 420px; left: 150px; padding: 10px; margin: 0;">Pintores famosos de todos los tiempos, sus obras</h6>
+                <h6  style="position: absolute; background-color: transparent;top: 440px; left: 150px; padding: 10px; margin: 0;">y los lugares donde se encuentran.</h6>
             </div>
         </div>
     </div>
 </div>
+<div class="container px-4 px-lg-5">
+    <!-- Imagen numero 2 -->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-5">
+            <h1 class="vollkorn-titulo">Artistas</h1>
+            <h6>Lo más significativo de la pintura, y de todas las formas de arte, es que detrás de ellas.hay personas que piensan, sienten y que quieren servirse del arte para decir algo.
+                En esta sección encontrarás breves reseñas y curiosidades sobre grandes pintores.</h6>
+       </div>
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'GaleriaApp/assets/img/collage.jpg' %}" alt="..." /></div>
+
+    </div>       
+</div>
+
+<div class="container px-4 px-lg-5">
+    <!-- Imagen numero 1-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'GaleriaApp/assets/img/collage2.jpg' %}" alt="..." /></div>
+        <div class="col-lg-5">
+            <h1 class="vollkorn-titulo">Obras</h1>
+            <h6>Detalles, anécdotas e historia de las pinturas más famosas (o no tanto).</h6>
+        </div>
+    </div>       
+</div>
+
+<div class="container px-4 px-lg-5">
+    <!-- Imagen numero 2 -->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-5">
+            <h1 class="vollkorn-titulo">Galerías</h1>
+            <h6>Galerías y museos donde pueden visitarse las obras de las que hablamos en esta web.</h6>
+       </div>
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'GaleriaApp/assets/img/collage3.jpg' %}" alt="..." /></div>
+
+    </div>       
+</div>
+
+<br>
+<br>
 
 {% endblock todo %}

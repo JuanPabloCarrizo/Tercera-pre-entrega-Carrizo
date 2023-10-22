@@ -34,7 +34,8 @@ plantillas = {
     'galeria_editar' : 'GaleriaApp/galeria_editar.html',
     'galeria_confirm': 'GaleriaApp/galeria_confirm_delete.html',
     'about': 'GaleriaApp/about.html',
-    '404' : 'GaleriaApp/404.html'
+    '404' : 'GaleriaApp/404.html',
+    'busqueda': 'GaleriaApp/busqueda.html',
 }
 
 
@@ -63,7 +64,6 @@ class Galerias(ListView):
     model = Galeria
     template_name = plantillas['galerias']
     
-
 class ArtistaDetalle(DetailView):
     model = Artista
     template_name = plantillas['artista_detalle']
@@ -214,7 +214,30 @@ class GaleriaDetalle(DetailView):
         context['obras_en_galeria'] = self.object.obras.all()
         return context
  
+class BusquedaView(ListView):
+    template_name = plantillas['busqueda']
+    context_object_name = 'resultados'
+    
 
+    def get_queryset(self):
+        selected_model = self.request.GET.get('model', 'Artistas')
+        query = self.request.GET.get('q', '')
+
+        if selected_model == 'Artistas':
+            return Artista.objects.filter(nombre__icontains=query)
+        elif selected_model == 'Obras':
+            return Obra.objects.filter(nombre__icontains=query)
+        elif selected_model == 'Galerias':
+            return Galeria.objects.filter(nombre__icontains=query)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['model_choices'] = ['Artistas', 'Obras', 'Galerias']
+        context['selected_model'] = self.request.GET.get('model', 'Artistas')
+        context['query'] = self.request.GET.get('q', '')
+        return context
+    
+    
 # Vistas de Panel de control (cuando el user está logueado y es admin)
 class ArtistasPanel(LoginRequiredMixin,ListView):
     model =  Artista

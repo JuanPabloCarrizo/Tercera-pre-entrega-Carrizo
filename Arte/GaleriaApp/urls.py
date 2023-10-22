@@ -8,6 +8,7 @@ urlpatterns = [
     path('artistas/', views.Artistas.as_view(),name="Artistas"),
     path('obras/', views.Obras.as_view(),name="Obras"),
     path('galerias/', views.Galerias.as_view(),name="Galerias"),
+    path('busqueda/', views.BusquedaView.as_view(), name='Busqueda'),
     # Artistas
     path('artistas-panel/', views.ArtistasPanel.as_view(),name="Artistas-Panel"),
     path('artista-nuevo/',views.ArtistaCreate.as_view(),name="Artista-Nuevo"),

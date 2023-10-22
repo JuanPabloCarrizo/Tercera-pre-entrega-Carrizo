@@ -45,7 +45,8 @@ def edit(request):
     
     if request.method == 'POST':
        
-        miFormulario = UserEditForm(request.POST, request.FILES)
+        miFormulario = UserEditForm(request.POST, request.FILES, instance=usuario)
+
         
         if miFormulario.is_valid():
            
@@ -77,10 +78,7 @@ def edit(request):
             return redirect('Inicio')  
     
     else:
-
-        miFormulario = UserEditForm(initial={'email': usuario.email,
-                                                'first_name': usuario.first_name,
-                                                'last_name': usuario.last_name,})
+        miFormulario = UserEditForm(instance=usuario)
     
     return render(request, plantillas['edit'], {"mi_form": miFormulario})
 

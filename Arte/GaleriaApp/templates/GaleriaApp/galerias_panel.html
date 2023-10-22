@@ -7,7 +7,7 @@
   <h1>{% block title %} Galerías {% endblock title %}</h1>
 </div>
 <div class="container text-center">
-  <a href="{% url 'Galeria-Nuevo' %}" class="btn btn-success">Agregar galería</a>
+  <a href="{% url 'Galeria-Nuevo' %}" class="btn btn-anto">Agregar galería</a>
 </div>
 <br>
 <br>
@@ -21,9 +21,9 @@
               <img src="{{ galeria.foto.url }}" class="card-img-top" alt="..." style="max-width: 100; max-height: 300px;">
                 <div class="card-body">
                   <h5 class="card-title">{{ galeria.nombre  }} </h5>
-                  <a href="{% url 'Galeria-Detalle' galeria.id %}" class="btn btn-success">Ver</a>
-                  <a href="{% url 'Galeria-Editar' galeria.id %}" class="btn btn-info">Editar</a>
-                  <a href="{% url 'Galeria-Eliminar' galeria.id %}" class="btn btn-danger">Eliminar</a>
+                  <a href="{% url 'Galeria-Detalle' galeria.id %}" class="btn btn-anto">Ver</a>
+                  <a href="{% url 'Galeria-Editar' galeria.id %}" class="btn btn-anto">Editar</a>
+                  <a href="{% url 'Galeria-Eliminar' galeria.id %}" class="btn btn-anto">Eliminar</a>
                 </div>
             </div>
       </div>

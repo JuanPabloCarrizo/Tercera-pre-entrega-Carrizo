@@ -1,0 +1,61 @@
+{% extends "GaleriaApp/padre.html" %}
+{% load static %}
+
+{% block title %} Búsqueda {% endblock title %}
+
+{% block todo %}
+<style>
+  .boton-flotante {
+      position: fixed;
+      bottom: 80px; /* Ajusta la distancia desde la parte inferior */
+      right: 60px; /* Ajusta la distancia desde la derecha */
+  }
+</style>
+<br>
+<br>
+
+<div class="container text-center">
+  <h1>Resultados de la búsqueda</h1>
+</div>
+<!-- Section-->
+<section class="py-3">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      <div class="col mb-5">
+        {% if resultados %}
+          <h2 class="mb-3">Resultados para {{ selected_model }}</h2>
+          <ul class="list-group">
+            {% for item in resultados %}
+              <li class="list-group-item">
+                {% if selected_model == 'Artistas' %}
+                  <a href="{% url 'Artista-Detalle' item.id %}">{{ item.nombre }}</a>
+                {% elif selected_model == 'Obras' %}
+                  <a href="{% url 'Obra-Detalle' item.id %}">{{ item.nombre }}</a>
+                {% elif selected_model == 'Galerias' %}
+                  <a href="{% url 'Galeria-Detalle' item.id %}">{{ item.nombre }}</a>
+                {% endif %}
+              </li>
+            {% empty %}
+              <li class="list-group-item">No se encontraron resultados.</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+        <li class="list-group-item">No se encontraron resultados.</li>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ 
+<button onclick="goBack()" class="btn btn-anto boton-flotante" style="width: 150px; height: 40px;">Volver</button>
+
+ 
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+{% endblock todo %}
