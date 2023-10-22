@@ -3,14 +3,16 @@
 
 {% block todo %}
 
-<br><div class="container text-center">
+<br>
+<br>
+<div class="container text-center">
   <h1>{% block title %} Galerías {% endblock title %}</h1>
 </div>
 <div class="container text-center">
   <a href="{% url 'Galeria-Nuevo' %}" class="btn btn-anto">Agregar galería</a>
 </div>
 <br>
-<br>
+
 
 <!-- Esto es el formulario de alta -->
 <div class="container text-center">
@@ -27,12 +29,16 @@
                 </div>
             </div>
       </div>
+      <br>
+      <br>
+      <br>
       {% endfor %}
       <br>
     </div>
 </div>
 <br>
-    
+<br>
+<br>
 
 
     

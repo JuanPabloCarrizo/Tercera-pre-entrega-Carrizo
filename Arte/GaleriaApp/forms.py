@@ -1,6 +1,4 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from GaleriaApp.models import Comentario, Artista, Galeria, Obra
 
     
@@ -11,6 +9,16 @@ class ArtistaFormulario(forms.ModelForm):
         widgets = {
             'fechaNac': forms.DateInput(attrs={'type': 'date'}),
             'fechaFallecimiento': forms.DateInput(attrs={'type': 'date'}),
+        }
+        labels = {
+            'nombre': 'Nombre del Artista',
+            'cita': 'Cita',
+            'nacionalidad': 'Nacionalidad',
+            'fechaNac': 'Fecha de Nacimiento',
+            'fechaFallecimiento': 'Fecha de Fallecimiento',
+            'movimiento': 'Movimiento Artístico',
+            'biografia': 'Biografía',
+            'foto': 'Foto del Artista',
         }
         
     def clean_foto(self):
@@ -33,7 +41,19 @@ class ObraFormulario(forms.ModelForm):
     class Meta:
         model = Obra
         fields = ["nombre", "cita", "anio", "material", "biografia", "foto", "artista", "galeria"]
+        
+        labels = {
+            'nombre': 'Nombre de la Obra',
+            'cita': 'Cita',
+            'anio': 'Año de Creación',
+            'material': 'Material Utilizado',
+            'biografia': 'Biografía de la Obra',
+            'foto': 'Foto de la Obra',
+            'artista': 'Artista Relacionado',
+            'galeria': 'Galería de Exhibición',
+        }
 
+    # Aplico cambios para que se vea mejor los combos de selección en el formulario!
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -51,6 +71,13 @@ class GaleriaFormulario(forms.ModelForm):
     class Meta:
         model = Galeria
         fields = ["nombre", "cita", "ubicacion","biografia", "foto"]
+        labels = {
+            'nombre': 'Nombre de la Galería',
+            'cita': 'Cita',
+            'ubicacion': 'Ubicación',
+            'biografia': 'Biografía de la Galería',
+            'foto': 'Foto de la Galería',
+        }
         
     def clean_foto(self):
         foto = self.cleaned_data.get('foto')

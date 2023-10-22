@@ -12,6 +12,8 @@
         <link rel="icon" type="image/x-icon" href="{% static 'GaleriaApp/assets/favicon.ico' %}" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn+SC" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
 
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'GaleriaApp/css/styles.css' %}" rel="stylesheet" />
@@ -22,6 +24,8 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
         </button>
+        <!--Agrego código para la busqueda, se realiza segun lo que se seleccion-->
+        <!-- No busca en todas las tablas, solo una por vez -->
           <form class="d-flex" method="get" role="search"action="{% url 'Busqueda' %}">                                  
             <select name="model" class="form-select form-select-sm me-2">
               <option value="Artistas" {% if selected_model == "Artistas" %}selected{% endif %}>Artistas</option>
@@ -57,14 +61,15 @@
               <li><a class="dropdown-item" href="{% url 'Password' %}">Cambiar contraseña</a></li>
               {% if user.is_superuser or user.is_staff %}
               <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="{% url 'Artistas-Panel' %}">Ver Artistas</a></li>
-                  <li><a class="dropdown-item" href="{% url 'Obras-Panel' %}">Ver Obras</a></li>
-                  <li><a class="dropdown-item" href="{% url 'Galerias-Panel' %}">Ver Galerias</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Artistas-Panel' %}">Artistas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Galerias-Panel' %}">Galerias</a></li>
+                  <li><a class="dropdown-item" href="{% url 'Obras-Panel' %}">Obras</a></li>                  
               {% endif %}
-              {% if user.is_superuser %} 
               <li><hr class="dropdown-divider"></li>
+              {% if user.is_superuser %}               
                   <li><a class="dropdown-item" href="{% url 'Crear-Usuario' %}">Crear usuario</a></li>
                   <li><a class="dropdown-item" href="{% url 'Listar-Usuarios' %}">Listar usuarios</a></li>
+                  <li><hr class="dropdown-divider"></li>
               {% endif %}
               <li><a class="dropdown-item" href="{% url 'Logout' %}">Desloguear</a></li>
             {% else %}

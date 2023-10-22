@@ -28,11 +28,18 @@
                 <!-- Post header -->
                 <header class="mb-4">
                     <!-- Post title -->
-                    <h1 class="fw-bolder mb-1">{{ artista.nombre }}</h1>
+                    <h1 class="fw-bolder mb-1 vollkorn-titulo-2">{{ artista.nombre }}</h1>
                     <!-- Post meta content -->
                     <div class="text-muted fst-italic mb-2">{{ artista.nacionalidad }}</div>
+                    
+                    <div class="text-muted fst-italic mb-2">{{ artista.fechaNac }} - {{artista.fechaFallecimiento}}</div>
                     <!-- Post categories -->
                     <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ artista.movimiento }}</a>
+                    <blockquote class="vollkorn-titulo-3" style="color: sienna;">
+                        "{{artista.cita}}"
+                        <cite>{{artista.nombre}}</cite>
+                      </blockquote>
+                      
                 </header>
                 <!-- Biografía -->
                 <section class="mb-5">

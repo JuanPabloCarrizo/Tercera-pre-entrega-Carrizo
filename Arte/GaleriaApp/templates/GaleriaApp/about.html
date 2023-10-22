@@ -15,83 +15,81 @@
 <div class="container px-4 px-lg-5">
     <div class="row">
         <!-- Foto e información -->
-        <div class="col-lg-4">
+        <div class="col-lg-12">
             <div class="card h-100">
                 <div class="row">
                     <div class="col-lg-4">
-                        <img class="img-fluid rounded mb-4 mb-lg-0" style="max-width: 150px; max-height: 130px; padding-top: 20px; padding-left: 30px;" src="{% static 'GaleriaApp/assets/img/perfil_jp.jpeg' %}" alt="Foto de perfil" />
+                        <img class="img-fluid rounded mb-4 mb-lg-0" style="max-width: 250px; max-height: 230px; padding-top: 20px; padding-left: 30px;" src="{% static 'GaleriaApp/assets/img/perfil_jp.jpeg' %}" alt="Foto de perfil" />
                     </div>
                     <div class="col-lg-7">
                         <h3 class="vollkorn-titulo-3">Juan Pablo Carrizo</h3>
                         <h6>Desarrollador de software - Guitarrista y compositor en <a href="https://www.instagram.com/automaticooficial/">Aütomático</a>.</h6>
                         <br>
                         <div class="btn-group"> 
-                            <a class="btn btn-anto" href="https://www.linkedin.com/in/-juanpablocarrizo/" target="_blank">LinkedIn</a>
-                            <a class="btn btn-anto" style="background-color: green;" href="https://open.spotify.com/intl-es/artist/0F3ZJuR6nx8KCK6Kx3hYMs?si=6iiYkoZxSn6jTZSAly6uCA" target="_blank">Spotify</a>
+                            <a class="btn btn-anto" style="background-color: blue;" href="https://www.linkedin.com/in/-juanpablocarrizo/" target="_blank">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                            <a class="btn btn-anto" style="background-color: black;" href="https://github.com/JuanPabloCarrizo/Tercera-pre-entrega-Carrizo" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a class="btn btn-anto" style="background-color: green;" href="https://open.spotify.com/intl-es/artist/0F3ZJuR6nx8KCK6Kx3hYMs?si=6iiYkoZxSn6jTZSAly6uCA" target="_blank">
+                                <i class="fab fa-spotify"></i> Spotify
+                            </a>
                         </div>
+                        
                         <br>
                         <br>
                         <ul class="list-unstyled">
-                            <li><a href="#acerca-de-mi"><h6>Información personal</h6></a></li>
-                            <li><a href="#work-experience"><h6>Experiencia Laboral</h6></a></li>
+                            <a class="btn btn-anto" href="#acerca-de-mi"><h6>Ver más</h6></a>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Acerca de este sitio -->
-        <div class="col-lg-8">
+        <div class="col-lg-10">
             <div id="acerca-de" class="section">
-                <h3 class="vollkorn-titulo-2">Acerca de este sitio.</h3>
+                <h3 class="vollkorn-titulo-2">Sobre este sitio</h3>
                 <h6>Aficionado a las expresiones artísticas, decidí que mi proyecto final sea sobre las obras y los artistas más famosos.</h6>
-                <h6>El administrador del sitio puede crear, editar y borrar cada una de las publicaciones.</h6>
-                <h6>como también, crear usuarios con rol de Staff para que lo asistan en la tarea.</h6>
-                <h6>La idea principalmente es poder navegar por donde le interés te lleve.</h6>
-                <h6>¡¡Si buscás algo en particular, tenés un buscador en la Navbar!!</h6>
+                <h6>El administrador del sitio puede crear, editar y borrar cada una de las publicaciones, como también crear usuarios con rol de staff para que lo asistan en la tarea.</h6>
+                <h6>La idea principal es poder navegar por donde el interés te lleve… pero si buscás algo en particular, ¡tenés un buscador en la navbar!</h6>
                 <h6>En este proyecto vas a encontrar información sobre:</h6>
                 <ul>
-                    <li><h6>Artirtas</h6></li>
-                    <li><h6>Obras</h6></li>
-                    <li><h6>Galerías</h6></li>
-                    <li><h4>¡Además podés crear un usuario y comentar tus opiniones sobre arte!</h5></li>
+                    <li><h6>En esta web vas a encontrar información sobre artistas, obras y galerías.</h6></li>
+                    <li><h5> ¡Además podés crear un usuario y comentar tus opiniones sobre arte!</h5></li>
                 </ul>
             </div>
         </div>
     </div>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
     <!-- Resto de las secciones... -->
     <div class="col-lg-8">
         <!-- Acerca de mi -->
+        <br>
         <div id="acerca-de-mi" class="section">
-            <h3 class="vollkorn-titulo-2">Información</h3>
-            <h6>Comencé a programar a partir de los 25 años en Cobol para bancos.</h6>
-            <h6>Luego me centré en la programación orientada a objetos y fué todo un cambio para mi.</h6>
-            <h6>A la par, aficionado a la música, empecé a componer y estuve en varias bandas hasta que formé Aütomático.</h6>
-            <h6>Algunos de mis intereses:</h6>
+            <h3 class="vollkorn-titulo-2">Sobre mí</h3>
+            <h6>Comencé a programar desde los 25 años en Cobol para bancos internacionales.</h6>
+            <h6>Luego me centré en la programación orientada a objetos y fué todo un cambio para mí.</h6>
+            <h6>A la par, siendo aficionado a la música, empecé a componer y estuve en varias bandas hasta que formé Aütomático.</h6>
+            <h6>Algunos de mis intereses:</h6>       
             <ul>
                 <li>Desarrollo de software</li>
                 <li>Música</li>
-                <li>Afincionado a la ciencia ficción</li>
+                <li>Ciencia ficción</li>
                 <li>El Señor de los Anillos</li>
             </ul>
          </div>
         <!-- Experiencia Laboral -->
         <div id="work-experience" class="section">
             <h3 class="vollkorn-titulo-2">Experiencia</h3>
-            <h6>Trabajé como Desarrollador de Software, como Auditor interno Norma ISO 9001:2015 y</h6>
-            <h6>como Responsable de Gestión de Calidad</h6>
+            <h6>Trabajé como Desarrollador de Software, Auditor interno de la Norma ISO 9001:2015 y</h6>
+            <h6>como Responsable de Gestión de la Calidad</h6>
             <h6>Algunos clientes y entidades donde trabajé:</h6>
             <ul>
                 <li>Indra S.A S.I</li>
                 <li>Banco Sabadell</li>
                 <li>Telefónica España</li>
-                <li>Ministerio de Produccion, Provincia de San Luis</li>
+                <li>Ministerio de Producción, Provincia de San Luis</li>
             </ul>
         </div>
     </div>

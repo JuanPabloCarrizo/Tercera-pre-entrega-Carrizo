@@ -4,12 +4,7 @@
 {% block title %} Editar Artista {% endblock title %}
 
 {% block todo %}
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <style>
+<style>
         body {
             display: flex;
             flex-direction: column;
@@ -25,16 +20,29 @@
             padding: 20px;
         }
 
-        /* Agregar márgenes y estilos al formulario */
+        /* Aumentar el tamaño de la tarjeta */
         .card {
-            width: 18rem;
+            width: 22rem; /* Puedes ajustar el ancho según tus necesidades */
             margin: 20px;
             padding: 20px;
         }
+
+        /* Alineación del contenido de la tarjeta */
+        .card-title {
+            text-align: center; /* Centrar el título */
+        }
+
+        .card-text {
+            text-align: center; /* Centrar el texto */
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrar verticalmente el contenido del card */
+        }
     </style>
-</head>
-<body>
-    <div class="container text-center">
+   <div class="container text-center">
         <div class="row align-items-start">
             <div class="col">
                 <div class="card">
@@ -58,8 +66,9 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+
+
+
 
 
 {% endblock todo %}

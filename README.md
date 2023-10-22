@@ -4,13 +4,10 @@
 ## Arte - Galería de arte online
 
 # Introducción:
-Esta página permite al administrador, generan contenido sobre artistas, sus obras
-y las galerías y museos donde son exhibidas y dar su opinión al respecto.
-Además puede crear usuarios que lo ayuden a realizar esta tarea.
-Se agregó la posibilidad de que los visitantes de la página,
-puedan crear una cuenta y comentar sobre la reseña.
-La idea es que puedan navegar entre el contenido y que los lleve a descubrir
-mas y mas material.
+Esta página permite al administrador y miembros de staff generar contenido sobre artistas, sus obras
+y los lugares donde son exhibidas.
+Se agregó la posibilidad de que los visitantes de la página,puedan crear una cuenta y comentar sobre la reseña.
+La idea es que puedan navegar entre el contenido y que los lleve a descubrir mas y mas información.
 
 # usuarios:
 *administrador:* Permite la creación, modificación y eliminación de contenido,
@@ -26,7 +23,21 @@ Si se crea una cuenta, puede editar su perfil, avatar y comentar sobre las entra
 obras, artistas y galerías disponibles.
 
 
-# Ejemplo de uso
+## Instrucciones
+Loguearse con el usuario admin:
+*user*: jpcarrizo
+*password*: Coderhouse01
+
+Loguearse con el usuario Staff:
+*user*: userstaff
+*password*: Coderhouse01
+
+Crear cuenta usuario norma:l
+*user*: leomessi
+*password*: Coderhouse01
+o
+Login > Registrar
+
 
 ## Navbar:
 ## Artistas - Obras - Galerías - Cuenta
@@ -35,17 +46,22 @@ Disponibles para todos los perfiles.
 ## Cuenta > Editar > Cambiar contraseña
 Para todos los perfiles.
 
-## Panel de control - Cuenta > Crear usuario - Listar usuarios 
-Usuarios con permisos de admin o staff.
+## Cuenta > Artistas/Obras/Galerías 
+Usuarios con permisos de administrador o staff.
 Permite la creación y edición de contenido.
 
+## Panel de control - Cuenta > Crear usuario - Listar usuarios 
+Usuarios con permisos de administrador.
+Permite la creación de usuarios con con rol de staff.
+ 
+## Casos de uso
+Ver el archivo: 
+Casos de uso - Coderhouse jpcarrizo.xlsx
 
-## Instrucciones
-Loguearse con el usuario:
-*user*: jpcarrizo
-*password*: Coderhouse01
+Ver el video:
+https://youtu.be/_9WmBenHs7U
 
-## Info
+
 
  
 

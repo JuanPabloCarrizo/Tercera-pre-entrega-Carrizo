@@ -23,18 +23,21 @@
       <div class="card" style="width: 18rem;">
         <img src="{{ obra.foto.url }}" class="card-img-top" alt="..." style="max-width: 100; max-height: 300px;">
           <div class="card-body">
-            <h5 class="card-title">{{ artista.nombre  }} </h5>
+            <h5 class="card-title">{{ obra.nombre  }} </h5>
             <a href="{% url 'Obra-Detalle' obra.id %}" class="btn btn-anto">Ver</a>
             <a href="{% url 'Obra-Editar' obra.id %}" class="btn btn-anto">Editar</a>
             <a href="{% url 'Obra-Eliminar' obra.id %}" class="btn btn-anto">Eliminar</a>
           </div>
       </div>
+      <br>
+      <br>
+      <br>
     </div>
     {% endfor %}
   </div>
 </div>
 <br>
-
+<br>
 </div>
     
 {% endblock todo%}
