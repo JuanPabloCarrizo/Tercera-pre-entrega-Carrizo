@@ -1,67 +1,93 @@
-# Trabajo final - Juan Pablo Carrizo
-## Coderhouse 2023 - Python Comisión 47770
+# Arte - Galería de Arte Online
 
-## Arte - Galería de arte online
+## Trabajo Final - Juan Pablo Carrizo
+### Coderhouse 2023 - Python Comisión 47770
 
-# Introducción:
-Esta página permite al administrador y miembros de staff generar contenido sobre artistas, sus obras
-y los lugares donde son exhibidas.
-Se agregó la posibilidad de que los visitantes de la página,puedan crear una cuenta y comentar sobre la reseña.
-La idea es que puedan navegar entre el contenido y que los lleve a descubrir mas y mas información.
+## Introducción:
 
-# usuarios:
-*administrador:* Permite la creación, modificación y eliminación de contenido,
-además de la creación y eliminación de usuarios.
-Opción de edición de cuenta incluyendo el avatar.
+Bienvenido a mi proyecto final para la comisión 47770 de Python en Coderhouse 2023. Esta aplicación web,  construida con el framework Django, denominada "Arte - Galería de Arte Online," brinda a los administradores, miembros del personal y visitantes la capacidad de generar, editar y explorar contenido relacionado con artistas, sus obras y los lugares donde se exhiben.
 
-*Staff:* Su rol es fundamental para ayudar al administrador a crear contenido al sitio.
-Permite la creación, modificación y eliminación de contenido.
-Opción de edición de cuenta incluyendo el avatar.
+Los visitantes de la página pueden disfrutar de la posibilidad de crear una cuenta, permitiéndoles comentar sobre las reseñas y sumergirse en un viaje de descubrimiento artístico a través del contenido disponible.
 
-*Usuario normal:* El visitante de la página, puede navegar por el contenido básico.
-Si se crea una cuenta, puede editar su perfil, avatar y comentar sobre las entradas de
-obras, artistas y galerías disponibles.
+## Tecnologías Utilizadas:
+
+- **Lenguaje:**
+  - Python 3.11.4
+
+- **Framework:**
+  - Django 4.2.5
+
+- **Base de Datos:**
+  - SQLite (por defecto en Django)
+
+- **Autenticación:**
+  - Django Authentication System
+
+- **Frontend:**
+  - HTML5, CSS3, JavaScript
+  - Plantillas de Django para renderizado dinámico
+  - Bootstrap templates
+
+---
+
+## Roles de Usuarios:
+
+- **Administrador:**
+  - Permite la creación, modificación y eliminación de contenido.
+  - Gestión completa de usuarios, incluyendo creación y eliminación.
+  - Opción de edición de cuenta, que incluye la personalización del avatar.
+
+- **Staff:**
+  - Colabora con el administrador en la creación y gestión de contenido.
+  - Puede crear, modificar y eliminar contenido.
+  - Opción de edición de cuenta, incluyendo la personalización del avatar.
+
+- **Usuario Normal:**
+  - Visitante de la página con acceso básico al contenido.
+  - Con una cuenta creada, puede editar su perfil, cambiar su avatar y comentar sobre las entradas de obras, artistas y galerías disponibles.
+
+## Instrucciones de Acceso:
+
+- **Administrador:**
+  - **Usuario:** jpcarrizo
+  - **Contraseña:** Coderhouse01
+
+- **Staff:**
+  - **Usuario:** userstaff
+  - **Contraseña:** Coderhouse01
+
+- **Usuario Normal (creación de cuenta):**
+  - **Usuario:** leomessi
+  - **Contraseña:** Coderhouse01
+  - O inicie sesión y registre una cuenta.
+
+## Navegación:
+
+### Navbar:
+- **Artistas - Obras - Galerías - Cuenta:**
+  Disponibles para todos los perfiles.
+
+### Cuenta > Editar > Cambiar Contraseña:
+- Para todos los perfiles.
+
+### Cuenta > Artistas/Obras/Galerías:
+- Usuarios con permisos de administrador o staff.
+- Permite la creación y edición de contenido.
+
+### Panel de Control - Cuenta > Crear Usuario - Listar Usuarios:
+- Usuarios con permisos de administrador.
+- Permite la creación de usuarios con el rol de staff.
+
+## Recursos Adicionales:
+
+- **Casos de Uso:**
+  Ver el archivo [Casos de Uso - Coderhouse jpcarrizo.xlsx](enlace al archivo).
+
+## Video Demostrativo:
+
+[![Ver Video Demostrativo](https://img.youtube.com/vi/_9WmBenHs7U/0.jpg)](https://youtu.be/_9WmBenHs7U)
+
+---
 
 
-## Instrucciones
-Loguearse con el usuario admin:
-*user*: jpcarrizo
-*password*: Coderhouse01
-
-Loguearse con el usuario Staff:
-*user*: userstaff
-*password*: Coderhouse01
-
-Crear cuenta usuario norma:l
-*user*: leomessi
-*password*: Coderhouse01
-o
-Login > Registrar
-
-
-## Navbar:
-## Artistas - Obras - Galerías - Cuenta
-Disponibles para todos los perfiles.
-
-## Cuenta > Editar > Cambiar contraseña
-Para todos los perfiles.
-
-## Cuenta > Artistas/Obras/Galerías 
-Usuarios con permisos de administrador o staff.
-Permite la creación y edición de contenido.
-
-## Panel de control - Cuenta > Crear usuario - Listar usuarios 
-Usuarios con permisos de administrador.
-Permite la creación de usuarios con con rol de staff.
- 
-## Casos de uso
-Ver el archivo: 
-Casos de uso - Coderhouse jpcarrizo.xlsx
-
-Ver el video:
-https://youtu.be/_9WmBenHs7U
-
-
-
- 
-
+¡Gracias por explorar la Galería de Arte Online! 
